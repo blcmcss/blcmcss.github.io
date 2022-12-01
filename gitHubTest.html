@@ -18,7 +18,7 @@ xmlhttp.onreadystatechange = function(){
 xmlhttp.open("GET","/RMS_Normal.csv",true);
 xmlhttp.send();
   
-  document.getElementById('testingP').innerHTML = txt;
+  document.getElementById('testingP').innerHTML = txt.value;
 }
 
 test();
