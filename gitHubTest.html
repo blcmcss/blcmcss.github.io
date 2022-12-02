@@ -855,7 +855,7 @@ display_c();
 			table.id = "table";
 			var tableLunches = document.createElement("table");
 			tableLunches.id = "tableLunches";	
-                    var rows = txt.split(/\r\n|\n/);
+                    var rows = txt.split(",");
 	    		document.getElementById('testingP').innerHTML = rows.length;
                     for (var i = 0; i < rows.length; i++) {
                         var cells = rows[i].split(",");
