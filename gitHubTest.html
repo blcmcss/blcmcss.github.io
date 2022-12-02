@@ -851,7 +851,7 @@ display_c();
 			};
 		xmlhttp.open("GET","/RMS_Normal.csv",true);
 		xmlhttp.send();
-					document.getElementById('periodsP').innerHTML = e.target.result;
+				
                     var rows = txt.split("\n");
                     for (var i = 0; i < rows.length; i++) {
                         var cells = rows[i].split(",");
@@ -1069,9 +1069,9 @@ display_c();
 						}
                 }
                 reader.readAsText(fileUpload.files[0]);
-            } else {
+       /*     } else {
                 alert("This browser does not support HTML5.");
-            }
+            } */
         } else {
             alert("Please upload a valid CSV file.");
         }
