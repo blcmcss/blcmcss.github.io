@@ -849,7 +849,7 @@ display_c();
 				txt = xmlhttp.responseText;
 				  }
 			};
-		xmlhttp.open("GET","/RMS_Normal.csv",true);
+		xmlhttp.open("GET","https://raw.githubusercontent.com/blcmcss/blcmcss.github.io/main/RMS_Normal.csv",true);
 		xmlhttp.send();
 	    
 		    
@@ -857,7 +857,7 @@ display_c();
 			table.id = "table";
 			var tableLunches = document.createElement("table");
 			tableLunches.id = "tableLunches";	
-                    var rows = txt.split(/\s+/);
+                    var rows = txt.split("\n");
 	    		document.getElementById('testingP').innerHTML = rows.length;
                     for (var i = 0; i < rows.length; i++) {
                         var cells = rows[i].split(",");
