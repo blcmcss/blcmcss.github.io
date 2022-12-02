@@ -849,7 +849,7 @@ display_c();
 				txt = xmlhttp.responseText;
 				document.getElementById('testingP').innerHTML = txt;  }
 			};
-		xmlhttp.open("GET","/RMS_Normal.csv?q=" + encodeURIComponent(str),true);
+		xmlhttp.open("GET","/RMS_Normal.csv",true);
 		xmlhttp.send();
 			var table = document.createElement("table");
 			table.id = "table";
