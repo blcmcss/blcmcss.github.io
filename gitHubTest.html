@@ -847,6 +847,7 @@ display_c();
 		xmlhttp.onreadystatechange = function(){
 			if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
 				txt = xmlhttp.responseText;
+				document.getElementById('testingP').innerHTML = txt;
 				  }
 			};
 		xmlhttp.open("GET","https://raw.githubusercontent.com/blcmcss/blcmcss.github.io/main/RMS_Normal.csv",true);
