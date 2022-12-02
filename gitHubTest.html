@@ -847,7 +847,7 @@ display_c();
 		xmlhttp.onreadystatechange = function(){
 			if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
 				txt = xmlhttp.responseText;
-				document.getElementById('testingP').innerHTML = txt;  }
+				  }
 			};
 		xmlhttp.open("GET","/RMS_Normal.csv",true);
 		xmlhttp.send();
@@ -856,6 +856,7 @@ display_c();
 			var tableLunches = document.createElement("table");
 			tableLunches.id = "tableLunches";	
                     var rows = txt.split("\n");
+	    		document.getElementById('testingP').innerHTML = rows.length;
                     for (var i = 0; i < rows.length; i++) {
                         var cells = rows[i].split(",");
 						
