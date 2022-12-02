@@ -851,7 +851,10 @@ display_c();
 			};
 		xmlhttp.open("GET","/RMS_Normal.csv",true);
 		xmlhttp.send();
-				
+			var table = document.createElement("table");
+			table.id = "table";
+			var tableLunches = document.createElement("table");
+			tableLunches.id = "tableLunches";	
                     var rows = txt.split("\n");
                     for (var i = 0; i < rows.length; i++) {
                         var cells = rows[i].split(",");
