@@ -849,16 +849,18 @@ display_c();
 				txt = xmlhttp.responseText;
 				document.getElementById('testingP').innerHTML = txt;
 				  }
+			fillTables(scheduleData);
 			};
 		xmlhttp.open("GET","/RMS_Normal.csv",true);
 		xmlhttp.send();
-	    
+    }
+	function fillTables(data) {
 		    
 			var table = document.createElement("table");
 			table.id = "table";
 			var tableLunches = document.createElement("table");
 			tableLunches.id = "tableLunches";	
-                    var rows = txt.split("\n");
+                    var rows = data.split("\n");
 	    		
                     for (var i = 0; i < rows.length; i++) {
                         var cells = rows[i].split(",");
