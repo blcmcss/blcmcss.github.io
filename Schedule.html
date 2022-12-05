@@ -867,10 +867,11 @@ display_c();
 		xmlhttp.open("GET",curSchoolDir+"/Normal.csv",true);
 		xmlhttp.send();
 	    } else {
+		    document.getElementById('schoolsLabel').innerHTML = "Choose your school: ";
 		    let redTextSpan = document.createElement('span');
 		    redTextSpan.innerHTML = "You must select a school!";
 		    redTextSpan.style.color = "red";
-		    document.getElementById('schoolsLabel').innerHTML = "Choose your school: " + redTextSpan.innerHTML;
+		    document.getElementById('schoolsLabel').append(redTextSpan);
 		}
 					    
     }
