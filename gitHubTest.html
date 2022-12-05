@@ -10,23 +10,7 @@ mytime=setTimeout('display_ct()',refresh)
 }
 
 //var addSec = 50;
-function display_ct() {
-var x = new Date();
-//x.setTime(x.getTime() /*- (6 * 60 * 60 * 1000) */ - (464 * 60 * 1000) - (30 * 1000));
-
-//x.setHours(9,47,addSec,0);
-//addSec++;
-var fiveMinsBefore = new Date();
-var fiveMinsAfter = new Date();
-var fiveAfterCur = new Date();
-var curMins;
-
-var fiveMinsBeforeLunch = new Date();
-var fiveMinsAfterLunch = new Date();
-
-var tableTime = new Date();
-document.getElementById('ct').innerHTML = x.toLocaleTimeString(/*'en-US-u-hc-h12', { hour: 'numeric', minute: '2-digit' }*/);
-curMins = ct.innerHTML.split(':')[1].split(':')[0];	
+	
 
 	var curClass = document.getElementsByClassName('time');
 	var periodsGradeA = document.getElementsByClassName('col1 period');
@@ -75,6 +59,28 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 	var tableTimeEndLunch = new Date();
 	var bgc = "green";
 	var bgCount = 0;
+	let schoolSelect = '';
+	let curSchool = '';	
+	let curSchoolDir = '';
+	
+function display_ct() {
+var x = new Date();
+//x.setTime(x.getTime() /*- (6 * 60 * 60 * 1000) */ - (464 * 60 * 1000) - (30 * 1000));
+
+//x.setHours(9,47,addSec,0);
+//addSec++;
+var fiveMinsBefore = new Date();
+var fiveMinsAfter = new Date();
+var fiveAfterCur = new Date();
+var curMins;
+
+var fiveMinsBeforeLunch = new Date();
+var fiveMinsAfterLunch = new Date();
+
+var tableTime = new Date();
+document.getElementById('ct').innerHTML = x.toLocaleTimeString(/*'en-US-u-hc-h12', { hour: 'numeric', minute: '2-digit' }*/);
+curMins = ct.innerHTML.split(':')[1].split(':')[0];	
+
 
 	var tableTime = new Date();
 	/*for (var i = 0; i < curClass.length; i++){
@@ -98,24 +104,7 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 				}
 		
 	}*/
-			var schoolSelect = document.getElementById('schools')
-		var curSchool = schoolSelect.value;
-		//document.getElementById('periodsP').innerHTML = periodsGradeALunch[0].innerHTML;
-		
-		switch (curSchool){
-							case 'RMS':
-								bgc = "#1B3C9D";
-								break;
-							case 'ROSS':
-								bgc = "#B30000";
-								break;
-							case 'CHS':
-								bgc = "#400080";
-								break;
-							case 'KiMS':
-								bgc = "#ED8B2E";
-								break;
-							}
+
 	
 	
 	//document.getElementById('periodsP').innerHTML = periodsGradeA.length;
@@ -851,7 +840,12 @@ display_c();
 				  }
 			
 			};
-		xmlhttp.open("GET","/RMS_Normal.csv",true);
+	    	schoolSelect = document.getElementById('schools')
+		curSchoolDir = schoolSelect.value;
+		
+							}
+	    
+		xmlhttp.open("GET",curSchoolDir+"/Normal.csv",true);
 		xmlhttp.send();
     }
 	function fillTables(data) {
