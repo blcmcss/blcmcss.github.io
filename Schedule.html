@@ -872,19 +872,19 @@ display_c();
 					noScheduleSelected = true;
 					break;
 				case 'Normal':
-					curFileName = "/normal.csv";
+					curFileName = "normal.csv";
 					break;
 				case '1-Hour-Delay':
-					curFileName = "/1-hour-delay.csv";
+					curFileName = "1-hour-delay.csv";
 					break;
 				case '2-Hour-Delay':
-					curFileName = "/2-hour-delay.csv";
+					curFileName = "2-hour-delay.csv";
 					break;
 				case 'AM-Pep-Rally':
-					curFileName = "/am-pep-rally.csv";
+					curFileName = "am-pep-rally.csv";
 					break;
 				case 'PM-Pep-Rally':
-					curFileName = "/pm-pep-rally.csv";
+					curFileName = "pm-pep-rally.csv";
 					break;
 				case 'request-new-sched':
 					document.getElementById('marquee').innerHTML = 'To request a new or updated schedule, contact your building\'s IT Support Technician or <a href="https://techlink.cmcss.net/Support/WorkOrders/Create">Submit a Work Order</a>.';
@@ -898,7 +898,7 @@ display_c();
 						
 	    if (noSchoolSelected == false && noScheduleSelected == false){
 		    document.getElementById('schoolsLabel').innerHTML = "Choose your school: ";
-		    xmlhttp.open("GET","/"+curSchoolDir+curFileName,true);
+		    xmlhttp.open("GET","/"+curSchoolDir+"/"+curFileName,true);
 		    xmlhttp.send();
 		    			
 	    } else {
