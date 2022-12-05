@@ -62,6 +62,8 @@ mytime=setTimeout('display_ct()',refresh)
 	let schoolSelect = '';
 	let curSchool = '';	
 	let curSchoolDir = '';
+	let scheduleSelect = '';
+	let curSchedule = '';
 	
 function display_ct() {
 var x = new Date();
@@ -842,7 +844,11 @@ display_c();
 			};
 	    	schoolSelect = document.getElementById('schools')
 		curSchoolDir = schoolSelect.value;
+	    	scheduleSelect = document.getElementById('schedules')
+	    	curSchedule = scheduleSelect.value;
+	    	let curFileName = '';
 	    	let noSchoolSelected = false;
+	    	let noScheduleSelected = false;
 	    		switch (curSchoolDir){
 				case 'default':
 					noSchoolSelected = true;
@@ -860,11 +866,38 @@ display_c();
 					bgc = "#ED8B2E";
 					break;
 				}
+	    		switch (curScheudle){
+				case 'default':
+					noScheduleSelected = true;
+					break;
+				case 'Normal':
+					curFileName = "/normal.csv";
+					break;
+				case '1-Hour-Delay':
+					curFileName = "/1-hour-delay.csv";
+					break;
+				case '2-Hour-Delay':
+					curFileName = "/2-hour-delay.csv";
+					break;
+				case 'AM-Pep-Rally':
+					curFileName = "/am-pep-rally.csv";
+					break;
+				case 'PM-Pep-Rally':
+					curFileName = "/pm-pep-rally.csv";
+					break;
+				case 'request-new-sched':
+					document.getElementById('marquee').innerHTML = 'To request a new or updated schedule, contact your building\'s IT Support Technician or <a href="https://techlink.cmcss.net/Support/WorkOrders/Create">Submit a Work Order</a>.';
+		    			document.getElementById('dvLunches').innerHTML = '';
+		   			document.getElementById('dvCSVLabel').innerHTML = '';
+		    			document.getElementById('dvCSV').innerHTML = '';
+					break;
+			}
+	    
 		
 						
 	    if (noSchoolSelected == false){
 		    document.getElementById('schoolsLabel').innerHTML = "Choose your school: ";
-		xmlhttp.open("GET",curSchoolDir+"/Normal.csv",true);
+		xmlhttp.open("GET","/"+curSchoolDir+curFileName,true);
 		xmlhttp.send();
 	    } else {
 		    document.getElementById('marquee').innerHTML = '';
