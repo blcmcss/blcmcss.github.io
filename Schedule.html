@@ -842,8 +842,7 @@ display_c();
 			if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
 				scheduleData = xmlhttp.responseText;
 				fillTables(scheduleData);
-				  }			
-			};
+
    
 	   
 	    	schoolSelect = document.getElementById('schools')
@@ -914,6 +913,8 @@ display_c();
 		    redTextSpan.style.color = "red";
 		    document.getElementById('schoolsLabel').append(redTextSpan);
 		}
+				  }			
+			};
 					    
      }
 	 function fillTables(data) {
