@@ -12,21 +12,13 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script type="text/javascript"> 
-var url = "https://blcmcss.github.io";
-$.get(url, (data) => 
-{
-    console.log(data);
-    let listing = parseDirectoryListing(data);
-    $('body').append(JSON.stringify(listing));
+// If you don't send the path property, by default will send the contents from the root level
+const repoContent = await github.rest.repos.getContent({
+  owner: 'blcmcss',
+  repo: 'blcmcss.github.io'
 });
-
-function parseDirectoryListing(text) 
-{
-    let docs = text
-                 .match(/href="([\w]+)/g) // pull out the hrefs
-                 .map((x) => x.replace('href="', '')); // clean up
-    console.log(docs);
-    return docs;
+  
+console.log('Files found at root level', repoContent.data.map((file) => file.name));
 }  
  
 </script>  
