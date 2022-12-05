@@ -859,6 +859,7 @@ display_c();
 	    	
 	    		switch (curSchedule){
 				case 'default':
+					curFileName = '';
 					noScheduleSelected = true;
 					break;
 				case 'Normal':
@@ -1152,9 +1153,9 @@ display_c();
 <div id="dvCSV"></div>
 
 <div id="buttons">
-	<p id='schedule-label'>Select today's schedule: </p>
+
 <select name='schedules' id='schedules'>
-	<option value='default'>Select today's schedule.</option>
+	<option value='default' disabled selected hidden>Select today's schedule.</option>
 	<option value='Normal'>Normal</option>
 	<option value='1-Hour-Delay'>1 Hour Delay</option>
 	<option value='2-Hour-Delay'>2 Hour Delay</option>
