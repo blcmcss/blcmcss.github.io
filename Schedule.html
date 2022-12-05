@@ -897,8 +897,16 @@ display_c();
 						
 	    if (noSchoolSelected == false && noScheduleSelected == false){
 		    document.getElementById('schoolsLabel').innerHTML = "Choose your school: ";
-		xmlhttp.open("GET","/"+curSchoolDir+curFileName,true);
-		xmlhttp.send();
+		if(xmlhttp.open("GET","/"+curSchoolDir+curFileName,true)){
+			xmlhttp.open("GET","/"+curSchoolDir+curFileName,true);
+			xmlhttp.send();
+		} else {
+			document.getElementById('marquee').innerHTML = 'There is no schedule file for the selected scheudle type. Contact your building\'s IT Support Technician or <a href="https://techlink.cmcss.net/Support/WorkOrders/Create">Submit a Work Order</a>.';
+		    	document.getElementById('dvLunches').innerHTML = '';
+		    	document.getElementById('dvCSVLabel').innerHTML = '';
+		   	 document.getElementById('dvCSV').innerHTML = '';
+		       }
+			
 	    } else {
 		    document.getElementById('marquee').innerHTML = '';
 		    document.getElementById('dvLunches').innerHTML = '';
