@@ -864,7 +864,7 @@ display_c();
 			tableLunches.id = "tableLunches";	
                     var rows = data.split("\n");
 	    		
-                    for (var i = 0; i < rows.length; i++) {
+                    for (let i = 0; i < rows.length; i++) {
                         var cells = rows[i].split(",");
 						
                         if (cells.length > 1) {
@@ -876,7 +876,7 @@ display_c();
 															var row = tableLunches.insertRow(-1);
 															}
 															
-                            for (var j = 0; j < cells.length; j++) {
+                            for (let j = 0; j < cells.length; j++) {
 							
 								
                                 
