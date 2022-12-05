@@ -895,7 +895,7 @@ display_c();
 	    
 		
 						
-	    if (noSchoolSelected == false){
+	    if (noSchoolSelected == false || noScheduleSelected == false){
 		    document.getElementById('schoolsLabel').innerHTML = "Choose your school: ";
 		xmlhttp.open("GET","/"+curSchoolDir+curFileName,true);
 		xmlhttp.send();
@@ -906,7 +906,7 @@ display_c();
 		    document.getElementById('dvCSV').innerHTML = '';
 		    document.getElementById('schoolsLabel').innerHTML = "Choose your school: ";
 		    let redTextSpan = document.createElement('span');
-		    redTextSpan.innerHTML = "You must select a school!";
+		    redTextSpan.innerHTML = "You must select a school and a schedule!";
 		    redTextSpan.style.color = "red";
 		    document.getElementById('schoolsLabel').append(redTextSpan);
 		}
