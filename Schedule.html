@@ -898,7 +898,7 @@ display_c();
 						
 	    if (noSchoolSelected == false && noScheduleSelected == false){
 		    document.getElementById('schoolsLabel').innerHTML = "Choose your school: ";
-		if(urlExists("/"+curSchoolDir+curFileName)){
+		if(xmlhttp.status != 404){
 			xmlhttp.open("GET","/"+curSchoolDir+curFileName,true);
 			xmlhttp.send();
 		} else {
@@ -1161,14 +1161,6 @@ display_c();
 		//alert("Inside uploadLunches");
 	}
 
-function urlExists(testUrl) {
-    var http = jQuery.ajax({
-        type:"HEAD", //Not get
-        url: testUrl,
-        async: false
-    })
-    return http.status!=404;
-}
 
 </script>
 
