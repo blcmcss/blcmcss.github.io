@@ -842,11 +842,11 @@ display_c();
 <script type="text/javascript">
 
     function Upload() {
-	var txt = '';
+	var scheduleData = '';
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function(){
 			if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
-				txt = xmlhttp.responseText;
+				scheduleData = xmlhttp.responseText;
 				document.getElementById('testingP').innerHTML = txt;
 				  }
 			fillTables(scheduleData);
