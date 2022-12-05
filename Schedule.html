@@ -861,12 +861,16 @@ display_c();
 					break;
 				}
 		
-							
+						
 	    if (noSchoolSelected == false){
+		    document.getElementById('schoolsLabel').innerHTML = "Choose your school: ";
 		xmlhttp.open("GET",curSchoolDir+"/Normal.csv",true);
 		xmlhttp.send();
 	    } else {
-		    document.getElementById('schoolsLabel').append("You must select a school!");
+		    let redTextSpan = document.createElement('span');
+		    redTextSpan.innerHTML = "You must select a school!";
+		    redTextSpan.style.color = "red";
+		    document.getElementById('schoolsLabel').appendChild(redTextSpan);
 		}
 					    
     }
@@ -1122,7 +1126,7 @@ display_c();
 <div id="buttons">
 
 
-<label for='schools' id='schoolsLabel'>Choose your school:</label>
+<label for='schools' id='schoolsLabel'>Choose your school: </label>
 <select name='schools' id='schools'>
 	<option value='default'>Select your school.</option>
 	<option value='RMS'>RMS</option>
