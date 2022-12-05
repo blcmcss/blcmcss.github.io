@@ -887,8 +887,7 @@ display_c();
 		    document.getElementById('dvLunches').innerHTML = '';
 		    document.getElementById('dvCSVLabel').innerHTML = '';
 		    document.getElementById('dvCSV').innerHTML = '';
-	    } else if (noSchoolSelected == false && noScheduleSelected == false){
-		   	document.getElementById('schoolsLabel').innerHTML = "Choose your school: ";
+	    } else if (noScheduleSelected == false){
 		    	xmlhttp.open("GET","/RMS"+"/"+curFileName,true);
 		    	xmlhttp.send();
 		} else {
@@ -899,7 +898,7 @@ display_c();
 		    let redTextSpan = document.createElement('span');
 		    redTextSpan.innerHTML = "You must select a schedule!";
 		    redTextSpan.style.color = "red";
-		    document.getElementById('schoolsLabel').append(redTextSpan);
+		    document.getElementById('schedule-label').append(redTextSpan);
 		}
 
 					    
@@ -1152,7 +1151,7 @@ display_c();
 <div id="dvCSV"></div>
 
 <div id="buttons">
-	
+	<p id='schedule-label'>Select today's schedule: </p>
 <select name='schedules' id='schedules'>
 	<option value='default'>Select today's schedule.</option>
 	<option value='Normal'>Normal</option>
