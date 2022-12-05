@@ -857,6 +857,7 @@ display_c();
     }
 	function fillTables(data) {
 		    	var lunchTrigger;
+			var cell;
 			var table = document.createElement("table");
 			table.id = "table";
 			var tableLunches = document.createElement("table");
@@ -886,10 +887,10 @@ display_c();
 							
 							
 							if (lunchTrigger == 0) {
-								var cell = row.insertCell(-1);
+								cell = row.insertCell(-1);
 							} else if (lunchTrigger == 1) {
 															//document.getElementById('periodsP').innerHTML = "inside cell creation";
-															var cell = row.insertCell(-1);
+															cell = row.insertCell(-1);
 																if (cells[j] != "" && cells[j] != 0){
 																	cell.classList.add('lunch');
 																}
