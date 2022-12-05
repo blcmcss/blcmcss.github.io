@@ -896,6 +896,7 @@ display_c();
 					curFileName = "pm-pep-rally.csv";
 					break;
 				case 'request-new-sched':
+					curFileName = "request-new";
 					document.getElementById('marquee').innerHTML = 'To request a new or updated schedule, contact your building\'s IT Support Technician or <a href="https://techlink.cmcss.net/Support/WorkOrders/Create">Submit a Work Order</a>.';
 		    			document.getElementById('dvLunches').innerHTML = '';
 		   			document.getElementById('dvCSVLabel').innerHTML = '';
@@ -906,12 +907,16 @@ display_c();
 		
 		console.log("Filename: " + curFileName);
 	    	console.log("School: " + curSchoolDir);
-	    if (noSchoolSelected == false && noScheduleSelected == false){
-		    document.getElementById('schoolsLabel').innerHTML = "Choose your school: ";
-		    xmlhttp.open("GET","/"+curSchoolDir+"/"+curFileName,true);
-		    xmlhttp.send();
-		    			
-	    } else {
+	    if (curFileName == "request-new") {
+		    document.getElementById('marquee').innerHTML = 'To request a new or updated schedule, contact your building\'s IT Support Technician or <a href="https://techlink.cmcss.net/Support/WorkOrders/Create">Submit a Work Order</a>.';
+		    document.getElementById('dvLunches').innerHTML = '';
+		    document.getElementById('dvCSVLabel').innerHTML = '';
+		    document.getElementById('dvCSV').innerHTML = '';
+	    } else if (noSchoolSelected == false && noScheduleSelected == false){
+		   	document.getElementById('schoolsLabel').innerHTML = "Choose your school: ";
+		    	xmlhttp.open("GET","/"+curSchoolDir+"/"+curFileName,true);
+		    	xmlhttp.send();
+		} else {
 		    document.getElementById('marquee').innerHTML = '';
 		    document.getElementById('dvLunches').innerHTML = '';
 		    document.getElementById('dvCSVLabel').innerHTML = '';
