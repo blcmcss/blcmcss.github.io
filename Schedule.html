@@ -896,7 +896,8 @@ display_c();
 			}
 	    
 		
-						
+		console.log("Filename: " + curFileName);
+	    	console.log("School: " + curSchoolDir);
 	    if (noSchoolSelected == false && noScheduleSelected == false){
 		    document.getElementById('schoolsLabel').innerHTML = "Choose your school: ";
 		    xmlhttp.open("GET","/"+curSchoolDir+"/"+curFileName,true);
