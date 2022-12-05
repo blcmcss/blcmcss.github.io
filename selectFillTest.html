@@ -1,0 +1,32 @@
+<html>
+
+<body>
+
+<p id='fileList'></p>
+
+</body>
+</html>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript"> 
+var url = "https://github.com/blcmcss/blcmcss.github.io?C=M;O=A";
+$.get(url, (data) => 
+{
+    console.log(data);
+    let listing = parseDirectoryListing(data);
+    $('body').append(JSON.stringify(listing));
+});
+
+function parseDirectoryListing(text) 
+{
+    let docs = text
+                 .match(/href="([\w]+)/g) // pull out the hrefs
+                 .map((x) => x.replace('href="', '')); // clean up
+    console.log(docs);
+    return docs;
+}  
+ 
+</script>  
