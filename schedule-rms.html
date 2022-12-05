@@ -889,7 +889,6 @@ display_c();
 		    document.getElementById('dvCSVLabel').innerHTML = '';
 		    document.getElementById('dvCSV').innerHTML = '';
 	    } else if (noScheduleSelected == false){
-		    	document.getElementById('schedule-label').innerHTML = "Select today's schedule: ";
 		    	xmlhttp.open("GET","/RMS"+"/"+curFileName,true);
 		    	xmlhttp.send();
 		} else {
@@ -1153,7 +1152,7 @@ display_c();
 <div id="dvCSV"></div>
 
 <div id="buttons">
-
+	<p id='schedule-label'></p>
 <select name='schedules' id='schedules'>
 	<option value='default' disabled selected hidden>Select today's schedule.</option>
 	<option value='Normal'>Normal</option>
@@ -1253,14 +1252,11 @@ h1 {
 	margin-bottom: 50px;
 }
 #fileUpload, #upload, #schedules, #schedule-label {
-	float: left;
-	margin-bottom: 3%;
+
+	margin: 3%;
 }
 #schedules {
 	margin-left: 1%;
-}
-#schedule-label {
-	margin-left: 3%;
 }
 body {
 	position: relative;
