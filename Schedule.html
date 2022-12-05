@@ -64,6 +64,9 @@ mytime=setTimeout('display_ct()',refresh)
 	let curSchoolDir = '';
 	let scheduleSelect = '';
 	let curSchedule = '';
+	let curFileName = '';
+	let noSchoolSelected = false;
+	let noScheduleSelected = false;
 	
 function display_ct() {
 var x = new Date();
@@ -846,9 +849,7 @@ display_c();
 		curSchoolDir = schoolSelect.value;
 	    	scheduleSelect = document.getElementById('schedules')
 	    	curSchedule = scheduleSelect.value;
-	    	let curFileName = '';
-	    	let noSchoolSelected = false;
-	    	let noScheduleSelected = false;
+	    	
 	    		switch (curSchoolDir){
 				case 'default':
 					noSchoolSelected = true;
@@ -897,7 +898,7 @@ display_c();
 						
 	    if (noSchoolSelected == false && noScheduleSelected == false){
 		    document.getElementById('schoolsLabel').innerHTML = "Choose your school: ";
-		if(xmlhttp.open("GET","/"+curSchoolDir+curFileName,true)){
+		if(urlExists("/"+curSchoolDir+curFileName){
 			xmlhttp.open("GET","/"+curSchoolDir+curFileName,true);
 			xmlhttp.send();
 		} else {
@@ -1160,6 +1161,14 @@ display_c();
 		//alert("Inside uploadLunches");
 	}
 
+function urlExists(testUrl) {
+    var http = jQuery.ajax({
+        type:"HEAD", //Not get
+        url: testUrl,
+        async: false
+    })
+    return http.status!=404;
+}
 
 </script>
 
