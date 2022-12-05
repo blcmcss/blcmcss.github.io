@@ -836,19 +836,22 @@ display_c();
 <script type="text/javascript">
 
     function Upload() {
+	    
+	schoolSelect = document.getElementById('schools');
+	curSchoolDir = schoolSelect.value;
+	scheduleSelect = document.getElementById('schedules');
+	curSchedule = scheduleSelect.value;	    
 	var scheduleData = '';
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function(){
 			if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
 				scheduleData = xmlhttp.responseText;
 				fillTables(scheduleData);
-
+				  }			
+			};
    
 	   
-	    	schoolSelect = document.getElementById('schools')
-		curSchoolDir = schoolSelect.value;
-	    	scheduleSelect = document.getElementById('schedules')
-	    	curSchedule = scheduleSelect.value;
+
 	    	
 	    		switch (curSchoolDir){
 				case 'default':
@@ -913,8 +916,7 @@ display_c();
 		    redTextSpan.style.color = "red";
 		    document.getElementById('schoolsLabel').append(redTextSpan);
 		}
-				  }			
-			};
+
 					    
      }
 	 function fillTables(data) {
