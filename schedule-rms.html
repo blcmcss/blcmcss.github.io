@@ -884,11 +884,13 @@ display_c();
 	    
 	
 	    if (curFileName == "request-new") {
+		    document.getElementById('schedule-label').innerHTML = '';
 		    document.getElementById('marquee').innerHTML = 'To request a new or updated schedule, contact your building\'s IT Support Technician or <a href="https://techlink.cmcss.net/Support/WorkOrders/Create">Submit a Work Order</a>.';
 		    document.getElementById('dvLunches').innerHTML = '';
 		    document.getElementById('dvCSVLabel').innerHTML = '';
 		    document.getElementById('dvCSV').innerHTML = '';
 	    } else if (noScheduleSelected == false){
+		    	document.getElementById('schedule-label').innerHTML = '';
 		    	xmlhttp.open("GET","/RMS"+"/"+curFileName,true);
 		    	xmlhttp.send();
 		} else {
