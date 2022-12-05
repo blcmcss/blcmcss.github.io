@@ -895,7 +895,7 @@ display_c();
 	    
 		
 						
-	    if (noSchoolSelected == false || noScheduleSelected == false){
+	    if (noSchoolSelected == false && noScheduleSelected == false){
 		    document.getElementById('schoolsLabel').innerHTML = "Choose your school: ";
 		xmlhttp.open("GET","/"+curSchoolDir+curFileName,true);
 		xmlhttp.send();
