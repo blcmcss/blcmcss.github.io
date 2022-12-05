@@ -888,6 +888,7 @@ display_c();
 		    document.getElementById('dvCSVLabel').innerHTML = '';
 		    document.getElementById('dvCSV').innerHTML = '';
 	    } else if (noScheduleSelected == false){
+		    	document.getElementById('schedule-label').innerHTML = "Select today's schedule: ";
 		    	xmlhttp.open("GET","/RMS"+"/"+curFileName,true);
 		    	xmlhttp.send();
 		} else {
@@ -1250,14 +1251,14 @@ h1 {
 	margin-top: 1%;
 	margin-bottom: 50px;
 }
-#fileUpload, #upload, #schools, #schoolsLabel {
+#fileUpload, #upload, #schedules, #schedule-label {
 	float: left;
 	margin-bottom: 3%;
 }
-#schools {
+#schedules {
 	margin-left: 1%;
 }
-#schoolsLabel {
+#schedule-label {
 	margin-left: 3%;
 }
 body {
