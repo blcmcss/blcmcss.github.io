@@ -843,6 +843,12 @@ display_c();
 				scheduleData = xmlhttp.responseText;
 				fillTables(scheduleData);
 				  }
+			else if(xmlhttp.status == 404){
+				document.getElementById('marquee').innerHTML = 'There is no schedule file for the selected option. Contact your building\'s IT Support Technician or <a href="https://techlink.cmcss.net/Support/WorkOrders/Create">Submit a Work Order</a>.';
+		    		document.getElementById('dvLunches').innerHTML = '';
+		   		document.getElementById('dvCSVLabel').innerHTML = '';
+		    		document.getElementById('dvCSV').innerHTML = '';				
+			}
 			
 			};
 	    	schoolSelect = document.getElementById('schools')
