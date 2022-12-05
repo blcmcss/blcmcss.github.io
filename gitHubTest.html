@@ -847,7 +847,6 @@ display_c();
 		xmlhttp.onreadystatechange = function(){
 			if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
 				scheduleData = xmlhttp.responseText;
-				document.getElementById('testingP').innerHTML = scheduleData;
 				fillTables(scheduleData);
 				  }
 			
