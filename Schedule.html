@@ -867,6 +867,10 @@ display_c();
 		xmlhttp.open("GET",curSchoolDir+"/Normal.csv",true);
 		xmlhttp.send();
 	    } else {
+		    document.getElementById('marquee').innerHTML = '';
+		    document.getElementById('dvLunches').innerHTML = '';
+		    document.getElementById('dvCSVLabel').innerHTML = '';
+		    docement.getElementById('dvCSV').innerHTML = '';
 		    document.getElementById('schoolsLabel').innerHTML = "Choose your school: ";
 		    let redTextSpan = document.createElement('span');
 		    redTextSpan.innerHTML = "You must select a school!";
