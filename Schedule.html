@@ -842,25 +842,33 @@ display_c();
 			};
 	    	schoolSelect = document.getElementById('schools')
 		curSchoolDir = schoolSelect.value;
+	    	let noSchoolSelected = false;
 	    		switch (curSchoolDir){
-							case 'RMS':
-								bgc = "#1B3C9D";
-								break;
-							case 'ROSS':
-								bgc = "#B30000";
-								break;
-							case 'CHS':
-								bgc = "#400080";
-								break;
-							case 'KiMS':
-								bgc = "#ED8B2E";
-								break;
-							}
+				case 'default':
+					noSchoolSelected = true;
+					break;
+				case 'RMS':
+					bgc = "#1B3C9D";
+					break;
+				case 'ROSS':
+					bgc = "#B30000";
+					break;
+				case 'CHS':
+					bgc = "#400080";
+					break;
+				case 'KiMS':
+					bgc = "#ED8B2E";
+					break;
+				}
 		
 							
-	    
+	    if (noSchoolSelected == false){
 		xmlhttp.open("GET",curSchoolDir+"/Normal.csv",true);
 		xmlhttp.send();
+	    } else {
+		    document.getElementById('schoolsLabel).append("You must select a school!");
+		}
+					    
     }
 	function fillTables(data) {
 		    	let lunchTrigger = 0;
@@ -1112,16 +1120,17 @@ display_c();
 <div id="dvCSV"></div>
 
 <div id="buttons">
-<input type="file" id="fileUpload" />
-<input type="button" id="upload" value="Upload" onclick="Upload()" />
+
 
 <label for='schools' id='schoolsLabel'>Choose your school:</label>
 <select name='schools' id='schools'>
+	<option value='default'>Select your school.</option>
 	<option value='RMS'>RMS</option>
-	<option value='CHS'>CHS</option>
-	<option value='ROSS'>ROSS</option>
+	<!--<option value='CHS'>CHS</option>-->
+	<!--<option value='ROSS'>ROSS</option>-->
 	<option value='KiMS'>KiMS</option>
 </select>
+	<input type="button" id="upload" value="Load Schedule" onclick="Upload()" />
 </div>
 	
 
