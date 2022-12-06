@@ -91,7 +91,24 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 
 	var tableTime = new Date();
 	/*for (var i = 0; i < curClass.length; i++){
-		var bgc = "blue";
+		var schoolSelect = document.getElementById('schools')
+		var curSchool = schoolSelect.value;
+		//document.getElementById('periodsP').innerHTML = periodsGradeALunch[0].innerHTML;
+		
+		switch (curSchool){
+							case 'RMS':
+								bgc = "#1B3C9D";
+								break;
+							case 'ROSS':
+								bgc = "#B30000";
+								break;
+							case 'CHS':
+								bgc = "#400080";
+								break;
+							case 'KiMS':
+								bgc = "#ED8B2E";
+								break;
+							}
 		
 		     
 
