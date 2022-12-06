@@ -851,8 +851,8 @@ function preSelect(select, name) {
 // the variable called "name" is the one that is retrieved from the querystring
 	let curURL = window.location.href;
 	let name = curURL.split("?")[0];
-let form = document.getElementById('schools'),
-    select = form.elements.schools;
+let formId = document.getElementById('schools'),
+    select = formId.options;
 selectOption(select, name);
 
     function Upload() {
