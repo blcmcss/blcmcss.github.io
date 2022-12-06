@@ -1243,7 +1243,7 @@ display_c();
 // the variable called "name" is the one that is retrieved from the querystring
 	let curURL = window.location.href;
 	let nameSchool = curURL.split("?")[1];
-	let nameSched = nameSchool.split("?")[1];
+	let nameSched = curURL.split("?")[2];
 	if (!nameSchool) {
 		nameSchool = "default";
 	}
