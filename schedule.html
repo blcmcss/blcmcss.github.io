@@ -1214,7 +1214,7 @@ display_c();
 
 	let options = selectPS.options, i=0;
     for (i = 0; i < options.length; i += 1) {
-        if (options[i].value = namePS) {
+        if (options[i].value == namePS) {
             options[i].setAttribute('selected', 'selected');
         } else {
             options[i].removeAttribute('selected');
