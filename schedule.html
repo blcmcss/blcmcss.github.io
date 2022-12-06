@@ -858,7 +858,8 @@ display_c();
 
     function Upload() {
 	noSchoolSelected = false;
-	noScheduleSelected = false;	    
+	noScheduleSelected = false;	
+	document.getElementById('selectWarning').innerHTML = '';
 	schoolSelect = document.getElementById('schools');
 	curSchoolDir = schoolSelect.value;
 	scheduleSelect = document.getElementById('schedules');
