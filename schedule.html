@@ -836,24 +836,7 @@ display_c();
 
 <script type="text/javascript">
 	
-function preSelect(select, name) {
 
-	let options = select.options, i=0;
-    for (i = 0; i < options.length; i += 1) {
-        if (options[i].value = name) {
-            options[i].setAttribute('selected', 'selected');
-        } else {
-            options[i].removeAttribute('selected');
-        }
-    }
-}
-
-// the variable called "name" is the one that is retrieved from the querystring
-	let curURL = window.location.href;
-	let name = curURL.split("?")[0];
-let formId = document.getElementById('schools'),
-    select = formId.options;
-selectOption(select, name);
 
     function Upload() {
 	noSchoolSelected = false;
@@ -1225,6 +1208,28 @@ selectOption(select, name);
 
 
 </body>
+
+<script>
+	function preSelect(select, name) {
+
+	let options = select.options, i=0;
+    for (i = 0; i < options.length; i += 1) {
+        if (options[i].value = name) {
+            options[i].setAttribute('selected', 'selected');
+        } else {
+            options[i].removeAttribute('selected');
+        }
+    }
+}
+
+// the variable called "name" is the one that is retrieved from the querystring
+	let curURL = window.location.href;
+	let name = curURL.split("?")[0];
+let formId = document.getElementById('schools'),
+    select = formId.options;
+selectOption(select, name);
+	
+</script>
 <style>
 
 #dvCSVLabel {
