@@ -1225,6 +1225,9 @@ display_c();
 // the variable called "name" is the one that is retrieved from the querystring
 	let curURL = window.location.href;
 	let name = curURL.split("?")[1];
+	if (!name) {
+		name = "default";
+	}
 	console.log(name);
 let select = document.getElementById('schools');
 preSelect(select, name);
