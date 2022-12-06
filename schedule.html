@@ -929,8 +929,6 @@ display_c();
 			}
 	    
 		
-		console.log("Filename: " + curFileName);
-	    	console.log("School: " + curSchoolDir);
 	    if (curFileName == "request-new") {
 		    document.getElementById('marquee').innerHTML = 'To request a new or updated schedule, contact your building\'s IT Support Technician or <a href="https://techlink.cmcss.net/Support/WorkOrders/Create">Submit a Work Order</a>.';
 		    document.getElementById('dvLunches').innerHTML = '';
@@ -1264,7 +1262,6 @@ display_c();
 	if (nameSched != "default") {
 		document.getElementById("schedules").disabled = true;
 	}
-	console.log("Name of School: " + nameSchool + "\n" + "Name of Schedule: " + nameSched + "\n" + "URL: " + curURL);
 let selectSchool = document.getElementById('schools');
 let selectSched = document.getElementById('schedules');
 preSelect(selectSchool, nameSchool);
