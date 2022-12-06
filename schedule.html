@@ -832,10 +832,29 @@ display_c();
 
 <body onload=display_ct();>
 <h1 id='ct' ></h1>
-<p id='periodsP'></p>
 
 
 <script type="text/javascript">
+	
+function preSelect(select, name) {
+
+	let options = select.options, i=0;
+    for (i = 0; i < options.length; i += 1) {
+        if (options[i].value = name) {
+            options[i].setAttribute('selected', 'selected');
+        } else {
+            options[i].removeAttribute('selected');
+        }
+    }
+}
+
+// the variable called "name" is the one that is retrieved from the querystring
+	let curURL = window.location.href;
+	let name = curURL.split("?")[0];
+let form = document.getElementById('schools'),
+    select = form.elements.schools;
+selectOption(select, name);
+}
 
     function Upload() {
 	noSchoolSelected = false;
@@ -1173,7 +1192,7 @@ display_c();
 
 </script>
 
-	<p id="testingP"></p>
+	
 <div id="marquee"></div>
 <div id="dvLunches"></div>
 <div id="dvCSVLabel"></div>
