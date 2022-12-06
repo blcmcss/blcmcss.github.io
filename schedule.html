@@ -12,6 +12,10 @@ mytime=setTimeout('display_ct()',refresh)
 //var addSec = 50;
 	
 
+	
+	
+function display_ct() {
+	
 	var curClass = document.getElementsByClassName('time');
 	var periodsGradeA = document.getElementsByClassName('col1 period');
 	var startTimesGradeA = document.getElementsByClassName('col2 time');
@@ -67,8 +71,6 @@ mytime=setTimeout('display_ct()',refresh)
 	let curFileName = '';
 	let noSchoolSelected = false;
 	let noScheduleSelected = false;
-	
-function display_ct() {
 var x = new Date();
 //x.setTime(x.getTime() /*- (6 * 60 * 60 * 1000) */ - (464 * 60 * 1000) - (30 * 1000));
 
