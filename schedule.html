@@ -919,7 +919,8 @@ display_c();
         else
             return false;
     }
-	    			if (urlExists("/img/"+curSchoolDir+".jpg")){
+	    			let imgURL = "/img/"+curSchoolDir+".jpg";
+	    			if (urlExists(imgURL)){
 	    			document.getElementById('ctContainer').style.backgroundImage = "url('/img/'+curSchoolDir+'.jpg')";
 				} else {
 					document.getElementById('ctContainer').style.backgroundImage = "none";
