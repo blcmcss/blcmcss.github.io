@@ -972,8 +972,9 @@ display_c();
 		}
 	    	let bodyLabelContainer = document.createElement("h1");
 	    	bodyLabelContainer.id = "bodyLabelContainer";
-	    	//document.getElementById('bodyLabelContainer').innerHTML = bodyLabel;
-		document.getElementById('ctContainer').prepend(bodyLabelContainer);
+	    	document.getElementById('ctContainer').prepend(bodyLabelContainer);
+	    	document.getElementById('bodyLabelContainer').innerHTML = bodyLabel;
+		
 					    
      }
 	 function fillTables(data) {
@@ -1323,8 +1324,11 @@ preSelect(selectSched, nameSched);
   justify-content: center;
   align-items: center;
   height: 75px;
+  margin-top: 0px;
  }	
-	
+#bodyLabelContainer {
+	margin-bottom: 0px;
+	}
 	
 .linksContent {
 	display: inline;
