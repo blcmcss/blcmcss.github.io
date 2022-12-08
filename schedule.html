@@ -91,47 +91,7 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 	var tableTime = new Date();
 		schoolSelect = document.getElementById('schools');
 		curSchool = schoolSelect.value;
-		//document.getElementById('periodsP').innerHTML = periodsGradeALunch[0].innerHTML;
-		
-		/*switch (curSchool){
-							case 'RMS':
-								bgc = "#1B3C9D";
-								break;
-							case 'RSMS':
-								bgc = "#B30000";
-								break;
-							case 'CHS':
-								bgc = "#400080";
-								break;
-							case 'KiMS':
-								bgc = "#ED8B2E";
-								break;
-							}*/
-		
-	/*for (var i = 0; i < curClass.length; i++){
 
-		     
-
-			
-			curTimeHours = document.getElementById('ct').innerHTML.split(':')[0];
-			curTimeMins = document.getElementById('ct').innerHTML.split(':')[1];
-			tableTimeHours = curClass[i].innerHTML.split(':')[0];
-			tableTimeHours = parseInt(tableTimeHours);
-			if(tableTimeHours < 5) {tableTimeHours += 12;}
-			tableTimeMins = curClass[i].innerHTML.split(':')[1].split(' ')[0];
-			tableTime.setHours(tableTimeHours,tableTimeMins,0,0);
-
-				if(tableTime < x) {
-					//curClass[i].style.background = bgc;
-					//curClass[i].style.color = "white";
-					
-				}
-		
-	}*/
-
-	
-	
-	//document.getElementById('periodsP').innerHTML = periodsGradeA.length;
 	if (document.getElementById('table')){
 	
 		if (document.getElementById('gradeAHeader')){
@@ -895,18 +855,50 @@ display_c();
 					document.getElementById('ctContainer').style.backgroundImage = "none";
 					noSchoolSelected = true;
 					break;
+				case 'CHS':
+					bgc = "#400080";
+					break;	
+				case 'KHS':
+					bgc = "#a69540";
+					break;
+				case 'KiMS':
+					bgc = "#ED8B2E";
+					break;
+				case 'KMS':
+					bgc = "#a69540";
+					break;
+				case 'MCHS':
+					bgc = "#a01517";
+					break;
+				case 'MCMS':
+					bgc = "#a01517";
+					break;
+				case 'NEHS':
+					bgc = "#131B42";
+					break;
+				case 'NEMS':
+					bgc = "#131B42";
+					break;
+				case 'NPMS':
+					bgc = "#0067b4";
+					break;
+				case 'NWHS':
+					bgc = "#143E28";
+					break;
 				case 'RMS':
 					bgc = "#1B3C9D";
+					break;
+				case 'RSHS':
+					bgc = "#B30000";
 					break;
 				case 'RSMS':
 					bgc = "#B30000";
 					break;
-				case 'CHS':
-					document.getElementById('ctContainer').style.backgroundImage = "";
-					bgc = "#400080";
+				case 'WCHS':
+					bgc = "#5D1932";
 					break;
-				case 'KiMS':
-					bgc = "#ED8B2E";
+				case 'WCMS':
+					bgc = "#5D1932";
 					break;
 				}
 	   
@@ -986,6 +978,14 @@ display_c();
 		    redTextSpan.innerHTML = "You must select a school and a schedule!";
 		    redTextSpan.style.color = "red";
 		    document.getElementById('selectWarning').append(redTextSpan);
+			if (document.getElementById('bodyLabelContainer')){
+				document.getElementById('bodyLabelContainer').append(redTextSpan);
+			} else {
+				let bodyLabelContainer = document.createElement("h1");
+	    			bodyLabelContainer.id = "bodyLabelContainer";
+	    			document.getElementById('ctContainer').prepend(bodyLabelContainer);
+	    			document.getElementById('bodyLabelContainer').innerHTML = bodyLabel;
+			}
 		}
 	    if (document.getElementById('bodyLabelContainer')){
 		    document.getElementById('bodyLabelContainer').innerHTML = bodyLabel;
@@ -1266,10 +1266,21 @@ display_c();
 <label for='schools' id='schoolsLabel'>Choose your school: </label>
 <select name='schools' id='schools'>
 	<option value='default'  disabled selected hidden>Select your school.</option>
-	<option value='RMS'>RMS</option>
 	<option value='CHS'>CHS</option>
-	<!--<option value='RSMS'>RSMS</option>-->
+	<option value='KHS'>KHS</option>
 	<option value='KiMS'>KiMS</option>
+	<option value='KMS'>KMS</option>
+	<option value='MCHS'>MCHS</option>
+	<option value='MCMS'>MCMS</option>
+	<option value='NEHS'>NEHS</option>
+	<option value='NEMS'>NEMS</option>
+	<option value='NPMS'>NPMS</option>
+	<option value='NWHS'>NWHS/option>
+	<option value='RMS'>RMS</option>
+	<option value='RSHS'>RSHS</option>
+	<option value='RSMS'>RSMS</option>
+	<option value='WCHS'>WCHS</option>
+	<option value='WCMS'>WCMS</option>
 </select>
 	<br />
 	<label for='schedules' id='schedulesLabel'>Choose today's schedule: </label>
