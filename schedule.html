@@ -15,7 +15,7 @@ mytime=setTimeout('display_ct()',refresh)
 	
 	
 function display_ct() {
-	
+	var bodyLabel = '';
 	var curClass = document.getElementsByClassName('time');
 	var periodsGradeA = document.getElementsByClassName('col1 period');
 	var startTimesGradeA = document.getElementsByClassName('col2 time');
@@ -910,25 +910,32 @@ display_c();
 					bgc = "#ED8B2E";
 					break;
 				}
+	    			bodyLabel = "";
 	    		switch (curSchedule){
 				case 'default':
 					curFileName = "";
 					noScheduleSelected = true;
+					bodyLabel = "";
 					break;
 				case 'normal':
 					curFileName = "normal.csv";
+					bodyLabel = "Normal Day";
 					break;
 				case '1-hour-delay':
 					curFileName = "1-hour-delay.csv";
+					bodyLabel = "1 Hour Delay";
 					break;
 				case '2-hour-delay':
 					curFileName = "2-hour-delay.csv";
+					bodyLabel = "2 Hour Delay";
 					break;
 				case 'am-pep-rally':
 					curFileName = "am-pep-rally.csv";
+					bodyLabel = "A.M. Pep Rally";
 					break;
 				case 'pm-pep-rally':
 					curFileName = "pm-pep-rally.csv";
+					bodyLabel = "P.M. Pep Rally";
 					break;
 				case 'request-new-sched':
 					curFileName = "request-new";
