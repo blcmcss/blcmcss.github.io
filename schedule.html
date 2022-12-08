@@ -970,7 +970,10 @@ display_c();
 		    redTextSpan.style.color = "red";
 		    document.getElementById('selectWarning').append(redTextSpan);
 		}
-		document.getElementById('ctContainer').prepend(bodyLabel);
+	    	let bodyLabelContainer = docuement.createElement("h1");
+	    	bodyLabelContainer.id = "bodyLabelContainer";
+	    	document.getElementById('bodyLabelContainer').innerHTML = bodyLabel;
+		document.getElementById('ctContainer').prepend(bodyLabelContainer);
 					    
      }
 	 function fillTables(data) {
