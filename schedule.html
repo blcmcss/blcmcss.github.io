@@ -866,6 +866,7 @@ display_c();
 
 
     function Upload() {
+	document.getElementById('ct').innerHTML = x.toLocaleTimeString(/*'en-US-u-hc-h12', { hour: 'numeric', minute: '2-digit' }*/);
 	noSchoolSelected = false;
 	noScheduleSelected = false;	
 	document.getElementById('selectWarning').innerHTML = '';
