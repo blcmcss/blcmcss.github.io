@@ -909,7 +909,21 @@ display_c();
 					bgc = "#ED8B2E";
 					break;
 				}
-	    			document.getElementById('ctContainer').style.backgroundImage = "url('/img/"+curSchoolDir+".jpg')";
+	   
+    function UrlExists(url) {
+        var http = new XMLHttpRequest();
+        http.open('HEAD', url , false);
+        http.send();
+        if (http.status != 404)
+            return true;
+        else
+            return false;
+    }
+	    			if (urlExists("/img/"+curSchoolDir+".jpg")){
+	    			document.getElementById('ctContainer').style.backgroundImage = "url('/img/'+curSchoolDir+'.jpg')";
+				} else {
+					document.getElementById('ctContainer').style.backgroundImage = "none";
+				}
 	    			bodyLabel = "";
 	    		switch (curSchedule){
 				case 'default':
