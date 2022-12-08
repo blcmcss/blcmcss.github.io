@@ -1162,21 +1162,31 @@ display_c();
 									lunchTDs[z].setAttribute('width', '8.33%');
 								}
 					}
-					else {
+					else if (headerRow.length > 3) {
 							marqueeDiv.innerHTML = "<table id='marqueeTable'><tr><td id='gradeAHeader' class='marqueeTD'></td><td id='gradeBHeader' class='marqueeTD'></td><td id='gradeCHeader' class='marqueeTD'></td></tr><tr><td id='gradeAMarquee' class='marqueeTD'></td><td id='gradeBMarquee' class='marqueeTD'></td><td id='gradeCMarquee' class='marqueeTD'></td></tr></table>";
 							for (var z = 0; z < lunchTdCount; z++) {
 								lunchTDs[z].setAttribute('width', '11.11%');
 							}
 							//marqueeDiv.style.
-					}
+					} else {
+							marqueeDiv.innerHTML = "<table id='marqueeTable'><tr><td id='gradeAHeader' class='marqueeTD'></td></tr><tr><td id='gradeAMarquee' class='marqueeTD'></td></tr></table>";
+							}
+							
 	
-					document.getElementsByClassName('header col2')[0].innerHTML = document.getElementsByClassName('header col2')[0].innerHTML + "th Grade";
-					document.getElementsByClassName('header col5')[0].innerHTML = document.getElementsByClassName('header col5')[0].innerHTML + "th Grade";
-					document.getElementsByClassName('header col8')[0].innerHTML = document.getElementsByClassName('header col8')[0].innerHTML + "th Grade";
-					
+					if (document.getElementsByClassName('header col2')[0] && headerRow.length >3){
+						document.getElementsByClassName('header col2')[0].innerHTML = document.getElementsByClassName('header col2')[0].innerHTML + "th Grade";
+					} else if (document.getElementsByClassName('header col2')[0]) {
+							document.getElementsByClassName('header col2')[0].innerHTML = document.getElementsByClassName('header col2')[0].innerHTML;
+						}
+					if (document.getElementsByClassName('header col5')[0]){
+						document.getElementsByClassName('header col5')[0].innerHTML = document.getElementsByClassName('header col5')[0].innerHTML + "th Grade";
+					}
+					if (document.getElementsByClassName('header col8')[0]){
+						document.getElementsByClassName('header col8')[0].innerHTML = document.getElementsByClassName('header col8')[0].innerHTML + "th Grade";
+					}
 					if (document.getElementsByClassName('header col11')[0]){
 						document.getElementsByClassName('header col11')[0].innerHTML = document.getElementsByClassName('header col11')[0].innerHTML + "th Grade";
-						}
+					}
                 }
               //  reader.readAsText(fileUpload.files[0]);
        /*     } else {
