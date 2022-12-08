@@ -889,9 +889,10 @@ display_c();
    
 	   
 
-	    	
+	    		document.getElementById('ctContainer').style.backgroundImage = "";
 	    		switch (curSchoolDir){
 				case 'default':
+					document.getElementById('ctContainer').style.backgroundImage = "";
 					noSchoolSelected = true;
 					break;
 				case 'RMS':
@@ -902,6 +903,7 @@ display_c();
 					bgc = "#B30000";
 					break;
 				case 'CHS':
+					document.getElementById('ctContainer').style.backgroundImage = "";
 					bgc = "#400080";
 					break;
 				case 'KiMS':
