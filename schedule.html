@@ -897,7 +897,6 @@ display_c();
 					break;
 				case 'RMS':
 					bgc = "#1B3C9D";
-					document.getElementById('ctContainer').style.backgroundImage = "url('/img/RMS.jpg')";
 					break;
 				case 'ROSS':
 					bgc = "#B30000";
@@ -910,6 +909,7 @@ display_c();
 					bgc = "#ED8B2E";
 					break;
 				}
+	    			document.getElementById('ctContainer').style.backgroundImage = "url('/img/"+curSchoolDir+".jpg')";
 	    			bodyLabel = "";
 	    		switch (curSchedule){
 				case 'default':
