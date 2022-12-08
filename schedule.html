@@ -856,7 +856,9 @@ display_c();
 </head>
 
 <body onload=display_ct();>
-<h1 id='ct' ></h1>
+	<div id='ctContainer'>
+		<h1 id='ct' ></h1>
+	</div>
 
 
 <script type="text/javascript">
@@ -894,6 +896,7 @@ display_c();
 					break;
 				case 'RMS':
 					bgc = "#1B3C9D";
+					document.getElementById('ctContainer').backgroundImage = "url('img/RMS.jpg')";
 					break;
 				case 'ROSS':
 					bgc = "#B30000";
@@ -1297,6 +1300,20 @@ preSelect(selectSched, nameSched);
 	}
 </script>
 <style>
+#ctContainer {
+  background-position: left center;
+  background-repeat: no-repeat;
+  min-height: 75px;
+  background-size: 75px;
+}
+#ct {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+ }	
+	
+	
 .linksContent {
 	display: inline;
 	margin: 3%;
