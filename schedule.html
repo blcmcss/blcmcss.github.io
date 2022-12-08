@@ -1320,8 +1320,9 @@ preSelect(selectSched, nameSched);
 #ctContainer {
   background-position: left center;
   background-repeat: no-repeat;
-  height: 150px;
-  background-size: 75px;
+	min-height: 75px;
+  max-height: 150px;
+  background-size: 150px;
 }
 #ct {
   display: flex;
@@ -1331,6 +1332,9 @@ preSelect(selectSched, nameSched);
   margin: 0px;
  }	
 #bodyLabelContainer {
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
 	margin: 0px;
 	height: 75px;
 	}
@@ -1426,6 +1430,9 @@ h1 {
 	margin-bottom: 3%;
 	margin-top: 0;
 }
+#selectWarning {
+	text-align: center;
+	}
 #schedules, #schedulesLabel {
 	margin-bottom: 0;
 	margin-top: 0;
