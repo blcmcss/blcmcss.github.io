@@ -1,7 +1,7 @@
 
 <head>
 <script type="text/javascript"> 
-
+let bgc = "white";
 function display_c(){
 var refresh=1000; // Refresh rate in milli seconds
 mytime=setTimeout('display_ct()',refresh)
@@ -865,7 +865,7 @@ display_c();
 
 
     function Upload() {
-	let bgc = "white";
+
 	noSchoolSelected = false;
 	noScheduleSelected = false;	
 	document.getElementById('selectWarning').innerHTML = '';
@@ -1421,8 +1421,12 @@ h1 {
 	margin-top: 1%;
 	text-align: center;
 }
-#fileUpload, #upload, #schools, #schoolsLabel, #schedulesLabel, #schedules, #selectWarning {
+#fileUpload, #upload, #schools, #schoolsLabel, #selectWarning {
 	margin-bottom: 3%;
+	margin-top: 0;
+}
+#schedules, #schedulesLabel {
+	margin-bottom: 0;
 	margin-top: 0;
 }
 body {
