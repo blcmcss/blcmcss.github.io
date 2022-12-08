@@ -923,7 +923,7 @@ display_c();
 	    			let imgURL = "/img/"+curSchoolDir+".jpg";
 			console.log(urlExists(imgURL));
 	    			if (urlExists(imgURL)){
-	    			document.getElementById('ctContainer').style.backgroundImage = "url(imgURL)";
+	    			document.getElementById('ctContainer').style.backgroundImage = "url("+imgURL+")";
 				} else {
 					document.getElementById('ctContainer').style.backgroundImage = "none";
 				}
