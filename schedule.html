@@ -97,7 +97,7 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 							case 'RMS':
 								bgc = "#1B3C9D";
 								break;
-							case 'ROSS':
+							case 'RSMS':
 								bgc = "#B30000";
 								break;
 							case 'CHS':
@@ -898,7 +898,7 @@ display_c();
 				case 'RMS':
 					bgc = "#1B3C9D";
 					break;
-				case 'ROSS':
+				case 'RSMS':
 					bgc = "#B30000";
 					break;
 				case 'CHS':
@@ -921,7 +921,6 @@ display_c();
     }
 	    
 	    			let imgURL = "/img/"+curSchoolDir+".jpg";
-			console.log(urlExists(imgURL));
 	    			if (urlExists(imgURL)){
 	    			document.getElementById('ctContainer').style.backgroundImage = "url("+imgURL+")";
 				} else {
@@ -1269,7 +1268,7 @@ display_c();
 	<option value='default'  disabled selected hidden>Select your school.</option>
 	<option value='RMS'>RMS</option>
 	<option value='CHS'>CHS</option>
-	<!--<option value='ROSS'>ROSS</option>-->
+	<!--<option value='RSMS'>RSMS</option>-->
 	<option value='KiMS'>KiMS</option>
 </select>
 	<br />
