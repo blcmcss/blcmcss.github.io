@@ -866,8 +866,6 @@ display_c();
 
 
     function Upload() {
-	let x = new Date();
-	document.getElementById('ct').innerHTML = x.toLocaleTimeString(/*'en-US-u-hc-h12', { hour: 'numeric', minute: '2-digit' }*/);
 	noSchoolSelected = false;
 	noScheduleSelected = false;	
 	document.getElementById('selectWarning').innerHTML = '';
@@ -972,10 +970,14 @@ display_c();
 		    redTextSpan.style.color = "red";
 		    document.getElementById('selectWarning').append(redTextSpan);
 		}
+	    if (document.getElementById('bodyLabelContainer')){
+		    document.getElementById('bodyLabelContainer').innerHTML = bodyLabel;
+	    } else {
 	    	let bodyLabelContainer = document.createElement("h1");
 	    	bodyLabelContainer.id = "bodyLabelContainer";
 	    	document.getElementById('ctContainer').prepend(bodyLabelContainer);
 	    	document.getElementById('bodyLabelContainer').innerHTML = bodyLabel;
+	    }
 		
 					    
      }
