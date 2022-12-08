@@ -1196,8 +1196,11 @@ display_c();
 							}
 							//marqueeDiv.style.
 					} else {
-							marqueeDiv.innerHTML = "<table id='marqueeTable'><tr><td id='gradeAHeader' class='marqueeTD'></td></tr><tr><td id='gradeAMarquee' class='marqueeTD'></td></tr></table>";
-							}
+							marqueeDiv.innerHTML = "<table id='marqueeTable'><tr><td id='gradeAHeader' class='marqueeTD-single'></td></tr><tr><td id='gradeAMarquee' class='marqueeTD-single'></td></tr></table>";
+							for (var z = 0; z < lunchTdCount; z++) {
+								lunchTDs[z].setAttribute('width', '33.33%');
+							}		
+					}
 							
 	
 					if (document.getElementsByClassName('header col2')[0] && headerRow.length >3){
@@ -1380,7 +1383,9 @@ preSelect(selectSched, nameSched);
 .marqueeTD4 {
 	width: 25%;
 }
-
+.marqueeTD-single {
+	width: 50%;
+	}
 #gradeAHeader, #gradeBHeader, #gradeCHeader, #gradeDHeader{
 	font-weight: bold;
 }
