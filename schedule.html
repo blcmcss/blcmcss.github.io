@@ -911,8 +911,7 @@ display_c();
         else
             return false;
     }
-	    let bodyLabelContainer = document.createElement("h1");
-	    	bodyLabelContainer.id = "bodyLabelContainer";
+	   
 	    
 	    			let imgURL = "/img/"+curSchoolDir+".jpg";
 	    			if (urlExists(imgURL)){
@@ -958,7 +957,8 @@ display_c();
 					break;
 			}
 	    
-		
+		 let bodyLabelContainer = document.createElement("h1");
+	    		bodyLabelContainer.id = "bodyLabelContainer";
 	    if (curFileName == "request-new") {
 		    document.getElementById('marquee').innerHTML = 'To request a new or updated schedule, contact your building\'s IT Support Technician or <a href="https://techlink.cmcss.net/Support/WorkOrders/Create">Submit a Work Order</a>.';
 		    document.getElementById('dvLunches').innerHTML = '';
