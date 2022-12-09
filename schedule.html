@@ -979,10 +979,12 @@ display_c();
 		    let redTextSpan = document.createElement('span');
 		    redTextSpan.innerHTML = "<h1>You must select a school and a schedule!</h1>";
 		    redTextSpan.style.color = "red";
+			console.log("warningTrigger is true    redTextSpan = " + redTextSpan);
 		    document.getElementById('bodyLabelContainer').innerHTML = redTextSpan;
 		}
 	    	
 	    if (warningTrigger == false){
+		    console.log("warningTrigger is false   bodylabel = " + bodyLabel);
 	    	document.getElementById('bodyLabelContainer').innerHTML = bodyLabel;
 	    }
 					    
