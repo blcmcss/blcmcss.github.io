@@ -977,14 +977,15 @@ display_c();
 		    document.getElementById('dvCSV').innerHTML = '';
 		    document.getElementById('schoolsLabel').innerHTML = "Choose your school: ";
 		    let redTextSpan = document.createElement('span');
-		    redTextSpan.innerHTML = "<h1>You must select a school and a schedule!</h1>";
-		    redTextSpan.style.color = "red";
+		    redTextSpan.innerHTML = "You must select a school and a schedule!";
+		    document.getElementById('bodyLabelContainer').style.color = "red";
 			console.log("warningTrigger is true    redTextSpan = " + redTextSpan);
 		    document.getElementById('bodyLabelContainer').innerHTML = redTextSpan.innerHTML;
 		}
 	    	
 	    if (warningTrigger == false){
 		    console.log("warningTrigger is false   bodylabel = " + bodyLabel);
+		document.getElementById('bodyLabelContainer').style.color = "black";
 	    	document.getElementById('bodyLabelContainer').innerHTML = bodyLabel;
 	    }
 					    
