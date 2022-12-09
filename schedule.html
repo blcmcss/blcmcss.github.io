@@ -979,8 +979,10 @@ display_c();
 		    redTextSpan.style.color = "red";
 		    document.getElementById('selectWarning').append(redTextSpan);
 			if (document.getElementById('bodyLabelContainer')){
+				console.log("bodylabel exisits, fill it with span");
 				document.getElementById('bodyLabelContainer').append(redTextSpan);
 			} else {
+				console.log("bodylable does not exist, create it and fill it");
 				let bodyLabelContainer = document.createElement("div");
 	    			bodyLabelContainer.id = "bodyLabelContainer";
 	    			document.getElementById('ctContainer').prepend(bodyLabelContainer);
