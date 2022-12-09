@@ -816,6 +816,7 @@ display_c();
 
 <body onload=display_ct();>
 	<div id='ctContainer'>
+		<h1 id='bodyLabelContainer'></h1>
 		<h1 id='ct' ></h1>
 	</div>
 
@@ -957,8 +958,6 @@ display_c();
 					break;
 			}
 	    
-		 let bodyLabelContainer = document.createElement("h1");
-	    		bodyLabelContainer.id = "bodyLabelContainer";
 	    if (curFileName == "request-new") {
 		    document.getElementById('marquee').innerHTML = 'To request a new or updated schedule, contact your building\'s IT Support Technician or <a href="https://techlink.cmcss.net/Support/WorkOrders/Create">Submit a Work Order</a>.';
 		    document.getElementById('dvLunches').innerHTML = '';
@@ -979,7 +978,7 @@ display_c();
 		    let redTextSpan = document.createElement('span');
 		    redTextSpan.innerHTML = "<h1>You must select a school and a schedule!</h1>";
 		    redTextSpan.style.color = "red";
-		    document.getElementById('bodyLabelContainer').append(redTextSpan);
+		    document.getElementById('bodyLabelContainer').innerHTML = redTextSpan;
 		}
 	    	
 	    	document.getElementById('ctContainer').prepend(bodyLabelContainer);
