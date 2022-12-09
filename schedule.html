@@ -911,6 +911,8 @@ display_c();
         else
             return false;
     }
+	    let bodyLabelContainer = document.createElement("h1");
+	    	bodyLabelContainer.id = "bodyLabelContainer";
 	    
 	    			let imgURL = "/img/"+curSchoolDir+".jpg";
 	    			if (urlExists(imgURL)){
@@ -977,16 +979,11 @@ display_c();
 		    let redTextSpan = document.createElement('span');
 		    redTextSpan.innerHTML = "<h1>You must select a school and a schedule!</h1>";
 		    redTextSpan.style.color = "red";
-		    document.getElementById('selectWarning').append(redTextSpan);
+		    document.getElementById('bodyLabelContainer').append(redTextSpan);
 		}
-	    if (document.getElementById('bodyLabelContainer')){
-		    document.getElementById('bodyLabelContainer').innerHTML = bodyLabel;
-	    } else {
-	    	let bodyLabelContainer = document.createElement("h1");
-	    	bodyLabelContainer.id = "bodyLabelContainer";
+	    	
 	    	document.getElementById('ctContainer').prepend(bodyLabelContainer);
 	    	document.getElementById('bodyLabelContainer').innerHTML = bodyLabel;
-	    }
 		
 					    
      }
