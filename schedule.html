@@ -957,7 +957,7 @@ display_c();
 					bodyLabel = "Request new or updated schedule";
 					break;
 			}
-	    
+	    let warningTrigger = false;
 	    if (curFileName == "request-new") {
 		    document.getElementById('marquee').innerHTML = 'To request a new or updated schedule, contact your building\'s IT Support Technician or <a href="https://techlink.cmcss.net/Support/WorkOrders/Create">Submit a Work Order</a>.';
 		    document.getElementById('dvLunches').innerHTML = '';
@@ -970,6 +970,7 @@ display_c();
 		    	xmlhttp.open("GET","/"+curSchoolDir+"/"+curFileName,true);
 		    	xmlhttp.send();
 		} else {
+			warningTrigger = true;
 		    document.getElementById('marquee').innerHTML = '';
 		    document.getElementById('dvLunches').innerHTML = '';
 		    document.getElementById('dvCSVLabel').innerHTML = '';
@@ -981,9 +982,9 @@ display_c();
 		    document.getElementById('bodyLabelContainer').innerHTML = redTextSpan;
 		}
 	    	
-	    	document.getElementById('ctContainer').prepend(bodyLabelContainer);
+	    if (warningTrigger == false){
 	    	document.getElementById('bodyLabelContainer').innerHTML = bodyLabel;
-		
+	    }
 					    
      }
 	 function fillTables(data) {
