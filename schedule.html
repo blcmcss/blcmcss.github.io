@@ -975,13 +975,13 @@ display_c();
 		    document.getElementById('dvCSV').innerHTML = '';
 		    document.getElementById('schoolsLabel').innerHTML = "Choose your school: ";
 		    let redTextSpan = document.createElement('span');
-		    redTextSpan.innerHTML = "You must select a school and a schedule!";
+		    redTextSpan.innerHTML = "<h1>You must select a school and a schedule!</h1>";
 		    redTextSpan.style.color = "red";
 		    document.getElementById('selectWarning').append(redTextSpan);
 			if (document.getElementById('bodyLabelContainer')){
 				document.getElementById('bodyLabelContainer').append(redTextSpan);
 			} else {
-				let bodyLabelContainer = document.createElement("h1");
+				let bodyLabelContainer = document.createElement("div");
 	    			bodyLabelContainer.id = "bodyLabelContainer";
 	    			document.getElementById('ctContainer').prepend(bodyLabelContainer);
 	    			document.getElementById('bodyLabelContainer').append(redTextSpan);
