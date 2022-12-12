@@ -931,6 +931,10 @@ display_c();
 					curFileName = "normal.csv";
 					bodyLabel = "Normal Day";
 					break;
+				case 'half-day':
+					curFileName = "half-day.csv";
+					bodyLabel = "Half Day";
+					break;
 				case '1-hour-delay':
 					curFileName = "1-hour-delay.csv";
 					bodyLabel = "1 Hour Delay";
@@ -1287,6 +1291,7 @@ display_c();
 <select name='schedules' id='schedules'>
 	<option value='default' disabled selected hidden>Select today's schedule.</option>
 	<option value='normal'>Normal</option>
+	<option value='half-day'>Half Day</option>
 	<option value='1-hour-delay'>1 Hour Delay</option>
 	<option value='2-hour-delay'>2 Hour Delay</option>
 	<option value='am-pep-rally'>AM Pep Rally</option>
