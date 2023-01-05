@@ -167,15 +167,15 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 					endTimesGradeA[k].style.color = "black";	
 					var minsLeft = tableTimeMinsEnd - curMins;
 					if (minsLeft > 1){
-						gradeAMarquee.innerHTML = minsLeft + " minutes left" + "<br />" + "Do not call!";
+						gradeAMarquee.innerHTML = "<b>" + periodsGradeA[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
 					} else if (minsLeft < 1) {
 							minsLeft += 60;
 								if (minsLeft > 1){
-												gradeAMarquee.innerHTML = minsLeft + " minutes left" + "<br />" + "Do not call!";
-												} else {gradeAMarquee.innerHTML = minsLeft + " minute left" + "<br />" + "Do not call!";
+												gradeAMarquee.innerHTML = "<b>" + periodsGradeA[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
+												} else {gradeAMarquee.innerHTML = "<b>" + periodsGradeA[k].innerHTML + "</b><br />" + minsLeft + " minute left";
 														}							
 						} else if (minsLeft == 1) {
-								gradeAMarquee.innerHTML = minsLeft + " minute left" + "<br />" + "Do not call!";
+								gradeAMarquee.innerHTML = "<b>" + periodsGradeA[k].innerHTML + "</b><br />" + minsLeft + " minute left";
 								}
 					bgCount = 3;
 					
