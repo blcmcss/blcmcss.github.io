@@ -342,15 +342,15 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 					var minsLeft = tableTimeMinsEnd - curMins;
 					//document.getElementById('periodsP').innerHTML = minsLeft;
 					if (minsLeft > 1){
-						gradeBMarquee.innerHTML = minsLeft + " minutes left" + "<br />" + "Do not call!";
+						gradeBMarquee.innerHTML = "<b>" + periodsGradeB[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
 					} else if (minsLeft < 1) {
 							minsLeft += 60;
 								if (minsLeft > 1){
-												gradeBMarquee.innerHTML = minsLeft + " minutes left" + "<br />" + "Do not call!";
-												} else {gradeBMarquee.innerHTML = minsLeft + " minute left" + "<br />" + "Do not call!";
+												gradeBMarquee.innerHTML = "<b>" + periodsGradeB[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
+												} else {gradeBMarquee.innerHTML = "<b>" + periodsGradeB[k].innerHTML + "</b><br />" + minsLeft + " minute left";
 														}							
 						} else if (minsLeft == 1) {
-								gradeBMarquee.innerHTML = minsLeft + " minute left" + "<br />" + "Do not call!";
+								gradeBMarquee.innerHTML = "<b>" + periodsGradeB[k].innerHTML + "</b><br />" + minsLeft + " minute left";
 								}
 					bgCount = 3;
 				} else if (k == periodsGradeB.length - 1 && x >= tableTimeEnd){
@@ -513,16 +513,17 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 					endTimesGradeC[k].style.color = "black";															
 					var minsLeft = tableTimeMinsEnd - curMins;
 					if (minsLeft > 1){
-						gradeCMarquee.innerHTML = minsLeft + " minutes left" + "<br />" + "Do not call!";
+						gradeCMarquee.innerHTML = "<b>" + periodsGradeC[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
 					} else if (minsLeft < 1) {
 							minsLeft += 60;
 								if (minsLeft > 1){
-												gradeCMarquee.innerHTML = minsLeft + " minutes left" + "<br />" + "Do not call!";
-												} else {gradeCMarquee.innerHTML = minsLeft + " minute left" + "<br />" + "Do not call!";
+												gradeCMarquee.innerHTML = "<b>" + periodsGradeC[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
+												} else {gradeCMarquee.innerHTML = "<b>" + periodsGradeC[k].innerHTML + "</b><br />" + minsLeft + " minute left";
 														}							
 						} else if (minsLeft == 1) {
-								gradeCMarquee.innerHTML = minsLeft + " minute left" + "<br />" + "Do not call!";
-								}					bgCount = 3;
+								gradeCMarquee.innerHTML = "<b>" + periodsGradeC[k].innerHTML + "</b><br />" + minsLeft + " minute left";
+								}					
+					bgCount = 3;
 				} else if (k == periodsGradeC.length - 1 && x >= tableTimeEnd){
 					periodsGradeC[k].style.background = "white";
 					periodsGradeC[k].style.color = "black";
@@ -683,16 +684,17 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 					endTimesGradeD[k].style.color = "black";															
 					var minsLeft = tableTimeMinsEnd - curMins;
 					if (minsLeft > 1){
-						gradeDMarquee.innerHTML = minsLeft + " minutes left" + "<br />" + "Do not call!";
+						gradeDMarquee.innerHTML = "<b>" + periodsGradeD[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
 					} else if (minsLeft < 1) {
 							minsLeft += 60;
 								if (minsLeft > 1){
-												gradeDMarquee.innerHTML = minsLeft + " minutes left" + "<br />" + "Do not call!";
-												} else {gradeDMarquee.innerHTML = minsLeft + " minute left" + "<br />" + "Do not call!";
+												gradeDMarquee.innerHTML = "<b>" + periodsGradeD[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
+												} else {gradeDMarquee.innerHTML = "<b>" + periodsGradeD[k].innerHTML + "</b><br />" + minsLeft + " minute left";
 														}							
 						} else if (minsLeft == 1) {
-								gradeDMarquee.innerHTML = minsLeft + " minute left" + "<br />" + "Do not call!";
-								}					bgCount = 3;
+								gradeDMarquee.innerHTML = "<b>" + periodsGradeD[k].innerHTML + "</b><br />" + minsLeft + " minute left";
+								}					
+					bgCount = 3;
 				} else if (k == periodsGradeD.length - 1 && x >= tableTimeEnd){
 					periodsGradeD[k].style.background = "white";
 					periodsGradeD[k].style.color = "black";
