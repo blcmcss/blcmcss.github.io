@@ -106,7 +106,6 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 		if (document.getElementById('gradeDHeader')){
 			gradeDHeader.innerHTML = document.getElementsByClassName('header col11')[0].innerHTML;
 		}
-		var pFiller;
 
 	
 		
@@ -480,12 +479,10 @@ display_c();
 		    let redTextSpan = document.createElement('span');
 		    redTextSpan.innerHTML = "You must select a school and a schedule!";
 		    document.getElementById('bodyLabelContainer').style.color = "red";
-			console.log("warningTrigger is true    redTextSpan = " + redTextSpan);
 		    document.getElementById('bodyLabelContainer').innerHTML = redTextSpan.innerHTML;
 		}
 	    	
 	    if (warningTrigger == false){
-		    console.log("warningTrigger is false   bodylabel = " + bodyLabel);
 		document.getElementById('bodyLabelContainer').style.color = "black";
 	    	document.getElementById('bodyLabelContainer').innerHTML = bodyLabel;
 	    }
