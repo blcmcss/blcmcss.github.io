@@ -122,13 +122,20 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 
 			
 		bgCount = 0;
-		for (k = 0; k < periodsGradeA.length; k++) {
-			if (startTimesGradeA[k] != null && endTimesGradeA[k] != null) {
+			displayPage(periodsGradeA, startTimesGradeA, endTimesGradeA, periodsGradeALunch, startTimesGradeALunch, endTimesGradeALunch, gradeAMarquee);
+	displayPage(periodsGradeB, startTimesGradeB, endTimesGradeB, periodsGradeBLunch, startTimesGradeBLunch, endTimesGradeBLunch, gradeBMarquee);
+	displayPage(periodsGradeC, startTimesGradeC, endTimesGradeC, periodsGradeCLunch, startTimesGradeCLunch, endTimesGradeCLunch, gradeCMarquee);
+	displayPage(periodsGradeD, startTimesGradeD, endTimesGradeD, periodsGradeDLunch, startTimesGradeDLunch, endTimesGradeDLunch, gradeDMarquee);
+		
+		
+	function displayPage(classPeriods, classStartTimes, classEndTimes, lunchPeriods, lunchStartTimes, lunchEndTimes, marquee){
+		for (k = 0; k < classPeriods.length; k++) {
+			if (classStartTimes[k] != null && classEndTimes[k] != null) {
 			//convert 6th grade start times from table to JS DateTimes
-			tableTimeHoursStart = startTimesGradeA[k].innerHTML.split(':')[0];
+			tableTimeHoursStart = classStartTimes[k].innerHTML.split(':')[0];
 			tableTimeHoursStart = parseInt(tableTimeHoursStart);
 			if(tableTimeHoursStart < 5) {tableTimeHoursStart += 12;}
-			tableTimeMinsStart = startTimesGradeA[k].innerHTML.split(':')[1].split(' ')[0];
+			tableTimeMinsStart = classStartTimes[k].innerHTML.split(':')[1].split(' ')[0];
 			tableTimeStart.setHours(tableTimeHoursStart,tableTimeMinsStart,0,0);
 			
 			//convert 6th grade end times from table to JS DateTimes
@@ -144,88 +151,88 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 			fiveAfterCur.setTime(x.getTime() + (5 * 60 * 1000));
 				
 				if (tableTimeStart < fiveAfterCur && x < tableTimeStart){
-					periodsGradeA[k].style.background = "yellow";
-					periodsGradeA[k].style.color = "black";
-					startTimesGradeA[k].style.background = "yellow";
-					startTimesGradeA[k].style.color = "black";
-					endTimesGradeA[k].style.background = "yellow";
-					endTimesGradeA[k].style.color = "black";
-					gradeAMarquee.innerHTML = "Changing Classes<br />Heading to <b>" + periodsGradeA[k].innerHTML + "</b>";
+					classPeriods[k].style.background = "yellow";
+					classPeriods[k].style.color = "black";
+					classStartTimes[k].style.background = "yellow";
+					classStartTimes[k].style.color = "black";
+					classEndTimes[k].style.background = "yellow";
+					classEndTimes[k].style.color = "black";
+					marquee.innerHTML = "Changing Classes<br />Heading to <b>" + classPeriods[k].innerHTML + "</b>";
 					bgCount = 1;
 				}
 				
 				else if (tableTimeStart <= x && fiveMinsBefore > x) {
 				//changing 6th grade period to blue
-					periodsGradeA[k].style.background = bgc;
-					periodsGradeA[k].style.color = "white";
-					startTimesGradeA[k].style.background = bgc;
-					startTimesGradeA[k].style.color = "white";
-					endTimesGradeA[k].style.background = bgc;
-					endTimesGradeA[k].style.color = "white";
-					gradeAMarquee.innerHTML = "<b>" + periodsGradeA[k].innerHTML + "</b><br />" + startTimesGradeA[k].innerHTML + " - " + endTimesGradeA[k].innerHTML;
+					classPeriods[k].style.background = bgc;
+					classPeriods[k].style.color = "white";
+					classStartTimes[k].style.background = bgc;
+					classStartTimes[k].style.color = "white";
+					classEndTimes[k].style.background = bgc;
+					classEndTimes[k].style.color = "white";
+					marquee.innerHTML = "<b>" + classPeriods[k].innerHTML + "</b><br />" + classStartTimes[k].innerHTML + " - " + classEndTimes[k].innerHTML;
 					bgCount = 2;
 				} 
 				
 				else if (x >= fiveMinsBefore && x < tableTimeEnd) {
-					periodsGradeA[k].style.background = "yellow";
-					periodsGradeA[k].style.color = "black";															
-					startTimesGradeA[k].style.background = "yellow";															
-					startTimesGradeA[k].style.color = "black";															
-					endTimesGradeA[k].style.background = "yellow";															
-					endTimesGradeA[k].style.color = "black";	
+					classPeriods[k].style.background = "yellow";
+					classPeriods[k].style.color = "black";															
+					classStartTimes[k].style.background = "yellow";															
+					classStartTimes[k].style.color = "black";															
+					classEndTimes[k].style.background = "yellow";															
+					classEndTimes[k].style.color = "black";	
 					var minsLeft = tableTimeMinsEnd - curMins;
 					if (minsLeft > 1){
-						gradeAMarquee.innerHTML = "<b>" + periodsGradeA[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
+						marquee.innerHTML = "<b>" + classPeriods[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
 					} else if (minsLeft < 1) {
 							minsLeft += 60;
 								if (minsLeft > 1){
-												gradeAMarquee.innerHTML = "<b>" + periodsGradeA[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
-												} else {gradeAMarquee.innerHTML = "<b>" + periodsGradeA[k].innerHTML + "</b><br />" + minsLeft + " minute left";
+												marquee.innerHTML = "<b>" + classPeriods[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
+												} else {marquee.innerHTML = "<b>" + classPeriods[k].innerHTML + "</b><br />" + minsLeft + " minute left";
 														}							
 						} else if (minsLeft == 1) {
-								gradeAMarquee.innerHTML = "<b>" + periodsGradeA[k].innerHTML + "</b><br />" + minsLeft + " minute left";
+								marquee.innerHTML = "<b>" + classPeriods[k].innerHTML + "</b><br />" + minsLeft + " minute left";
 								}
 					bgCount = 3;
 					
-				} else if (k == periodsGradeA.length - 1 && x >= tableTimeEnd){
-					periodsGradeA[k].style.background = "white";
-					periodsGradeA[k].style.color = "black";
-					startTimesGradeA[k].style.background = "white";
-					startTimesGradeA[k].style.color = "black";
-					endTimesGradeA[k].style.background = "white";
-					endTimesGradeA[k].style.color = "black";
-					gradeAMarquee.innerHTML = "School's Out";
+				} else if (k == classPeriods.length - 1 && x >= tableTimeEnd){
+					classPeriods[k].style.background = "white";
+					classPeriods[k].style.color = "black";
+					classStartTimes[k].style.background = "white";
+					classStartTimes[k].style.color = "black";
+					classEndTimes[k].style.background = "white";
+					classEndTimes[k].style.color = "black";
+					marquee.innerHTML = "School's Out";
 				} else {
-					periodsGradeA[k].style.background = "white";
-					periodsGradeA[k].style.color = "black";
-					startTimesGradeA[k].style.background = "white";
-					startTimesGradeA[k].style.color = "black";
-					endTimesGradeA[k].style.background = "white";
-					endTimesGradeA[k].style.color = "black";
+					classPeriods[k].style.background = "white";
+					classPeriods[k].style.color = "black";
+					classStartTimes[k].style.background = "white";
+					classStartTimes[k].style.color = "black";
+					classEndTimes[k].style.background = "white";
+					classEndTimes[k].style.color = "black";
 				}
 				//periodsP.innerHTML = bgCount;
 				switch (bgCount) {
 					//out of school and default
 					case 0: 
-							gradeAMarquee.style.background = "white";
-							gradeAMarquee.style.color = "black";
+							marquee.style.background = "white";
+							marquee.style.color = "black";
 							break;
 							
 					//changing classes
 					case 1: 
-							gradeAMarquee.style.background = "yellow";
-							gradeAMarquee.style.color = "black";
+							marquee.style.background = "yellow";
+							marquee.style.color = "black";
 							break;
 							
 					//normal ops
 					case 2: 
-							gradeAMarquee.style.background = bgc;
-							gradeAMarquee.style.color = "white";
+							marquee.style.background = bgc;
+							marquee.style.color = "white";
 							break;
 					//5 mins left do not call
 					case 3:
-							gradeAMarquee.style.background = "yellow";
-							gradeAMarquee.style.color = "black";
+							marquee.style.background = "yellow";
+							marquee.style.color = "black";
 							break;
 							
 				}		
@@ -234,20 +241,20 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 		}	
 		
 		///////////////////////A Grade Lunch//////////////////////
-		for (k = 0; k < periodsGradeALunch.length; k++) {
-			if (startTimesGradeALunch[k] != null && endTimesGradeALunch[k] != null) {
+		for (k = 0; k < lunchPeriods.length; k++) {
+			if (lunchStartTimes[k] != null && lunchEndTimes[k] != null) {
 			//convert 6th grade start times from table to JS DateTimes
-			tableTimeHoursStartLunch = startTimesGradeALunch[k].innerHTML.split(':')[0];
+			tableTimeHoursStartLunch = lunchStartTimes[k].innerHTML.split(':')[0];
 			tableTimeHoursStartLunch = parseInt(tableTimeHoursStartLunch);
 			if(tableTimeHoursStartLunch < 5) {tableTimeHoursStartLunch += 12;}
-			tableTimeMinsStartLunch = startTimesGradeALunch[k].innerHTML.split(':')[1].split(' ')[0];
+			tableTimeMinsStartLunch = lunchStartTimes[k].innerHTML.split(':')[1].split(' ')[0];
 			tableTimeStartLunch.setHours(tableTimeHoursStartLunch,tableTimeMinsStartLunch,0,0);
 			
 			//convert 6th grade end times from table to JS DateTimes
-			tableTimeHoursEndLunch = endTimesGradeALunch[k].innerHTML.split(':')[0];
+			tableTimeHoursEndLunch = lunchEndTimes[k].innerHTML.split(':')[0];
 			tableTimeHoursEndLunch = parseInt(tableTimeHoursEndLunch);
 			if(tableTimeHoursEndLunch < 5) {tableTimeHoursEndLunch += 12;}
-			tableTimeMinsEndLunch = endTimesGradeALunch[k].innerHTML.split(':')[1].split(' ')[0];
+			tableTimeMinsEndLunch = lunchEndTimes[k].innerHTML.split(':')[1].split(' ')[0];
 			tableTimeEndLunch.setHours(tableTimeHoursEndLunch,tableTimeMinsEndLunch,0,0);
 			
 				
@@ -256,564 +263,45 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 			fiveAfterCur.setTime(x.getTime() + (5 * 60 * 1000));
 				
 				if (tableTimeStartLunch < fiveAfterCur && x < tableTimeStartLunch){
-					periodsGradeALunch[k].style.background = "red";
-					periodsGradeALunch[k].style.color = "white";
-					startTimesGradeALunch[k].style.background = "red";
-					startTimesGradeALunch[k].style.color = "white";
-					endTimesGradeALunch[k].style.background = "red";
-					endTimesGradeALunch[k].style.color = "white";
+					lunchPeriods[k].style.background = "red";
+					lunchPeriods[k].style.color = "white";
+					lunchStartTimes[k].style.background = "red";
+					lunchStartTimes[k].style.color = "white";
+					lunchEndTimes[k].style.background = "red";
+					lunchEndTimes[k].style.color = "white";
 				}
 				
 				else if (tableTimeStartLunch <= x && fiveMinsBeforeLunch > x) {
-				//changing 6th grade period to blue
-					periodsGradeALunch[k].style.background = "red";
-					periodsGradeALunch[k].style.color = "white";
-					startTimesGradeALunch[k].style.background = "red";
-					startTimesGradeALunch[k].style.color = "white";
-					endTimesGradeALunch[k].style.background = "red";
-					endTimesGradeALunch[k].style.color = "white";
+					lunchPeriods[k].style.background = "red";
+					lunchPeriods[k].style.color = "white";
+					lunchStartTimes[k].style.background = "red";
+					lunchStartTimes[k].style.color = "white";
+					lunchEndTimes[k].style.background = "red";
+					lunchEndTimes[k].style.color = "white";
 				} 
 				
-				else if (x >= fiveMinsBeforeLunch && x < tableTimeEndLunch) {
-					periodsGradeALunch[k].style.background = "red";
-					periodsGradeALunch[k].style.color = "white";
-					startTimesGradeALunch[k].style.background = "red";
-					startTimesGradeALunch[k].style.color = "white";
-					endTimesGradeALunch[k].style.background = "red";
-					endTimesGradeALunch[k].style.color = "white";																				
+				else if (x >= fiveMinsBeforeLunch && x < fiveMinsAfterLunch) {
+					lunchPeriods[k].style.background = "red";
+					lunchPeriods[k].style.color = "white";
+					lunchStartTimes[k].style.background = "red";
+					lunchStartTimes[k].style.color = "white";
+					lunchEndTimes[k].style.background = "red";
+					lunchEndTimes[k].style.color = "white";																				
 				} else {
-					periodsGradeALunch[k].style.background = "white";
-					periodsGradeALunch[k].style.color = "black";
-					startTimesGradeALunch[k].style.background = "white";
-					startTimesGradeALunch[k].style.color = "black";
-					endTimesGradeALunch[k].style.background = "white";
-					endTimesGradeALunch[k].style.color = "black";
+					lunchPeriods[k].style.background = "white";
+					lunchPeriods[k].style.color = "black";
+					lunchStartTimes[k].style.background = "white";
+					lunchStartTimes[k].style.color = "black";
+					lunchEndTimes[k].style.background = "white";
+					lunchEndTimes[k].style.color = "black";
 				}		
 					
 			}	
 		}
+	}
 		
-		//document.getElementById('periodsP').innerHTML = periodsGradeALunch[0].innerHTML;
-		
-		///////////////////////B grade////////////////////////////
-		bgCount = 0;
-		for (k = 0; k < periodsGradeB.length; k++) {
-			if (startTimesGradeB[k] != null && endTimesGradeB[k] != null){
-			//convert 6th grade start times from table to JS DateTimes
-			tableTimeHoursStart = startTimesGradeB[k].innerHTML.split(':')[0];
-			tableTimeHoursStart = parseInt(tableTimeHoursStart);
-			if(tableTimeHoursStart < 5) {tableTimeHoursStart += 12;}
-			tableTimeMinsStart = startTimesGradeB[k].innerHTML.split(':')[1].split(' ')[0];
-			tableTimeStart.setHours(tableTimeHoursStart,tableTimeMinsStart,0,0);
-			
-			//convert 6th grade end times from table to JS DateTimes
-			tableTimeHoursEnd = endTimesGradeB[k].innerHTML.split(':')[0];
-			tableTimeHoursEnd = parseInt(tableTimeHoursEnd);
-			if(tableTimeHoursEnd < 5) {tableTimeHoursEnd += 12;}
-			tableTimeMinsEnd = endTimesGradeB[k].innerHTML.split(':')[1].split(' ')[0];
-			tableTimeEnd.setHours(tableTimeHoursEnd,tableTimeMinsEnd,0,0);
-
-			fiveMinsBefore.setTime(tableTimeEnd.getTime() - (5 * 60 * 1000));
-			fiveMinsAfter.setTime(tableTimeEnd.getTime() + (5 * 60 * 1000));
-			fiveAfterCur.setTime(x.getTime() + (5 * 60 * 1000));				
-				
-				if (tableTimeStart < fiveAfterCur && x < tableTimeStart){
-					periodsGradeB[k].style.background = "yellow";
-					periodsGradeB[k].style.color = "black";
-					startTimesGradeB[k].style.background = "yellow";
-					startTimesGradeB[k].style.color = "black";
-					endTimesGradeB[k].style.background = "yellow";
-					endTimesGradeB[k].style.color = "black";
-					gradeBMarquee.innerHTML = "Changing Classes<br />Heading to <b>" + periodsGradeB[k].innerHTML + "</b>";
-					bgCount = 1;
-				}
-				
-				else if (tableTimeStart <= x && fiveMinsBefore > x) {
-				//changing 6th grade period to blue
-					periodsGradeB[k].style.background = bgc;
-					periodsGradeB[k].style.color = "white";
-					startTimesGradeB[k].style.background = bgc;
-					startTimesGradeB[k].style.color = "white";
-					endTimesGradeB[k].style.background = bgc;
-					endTimesGradeB[k].style.color = "white";
-					gradeBMarquee.innerHTML = "<b>" + periodsGradeB[k].innerHTML + "</b><br />" + startTimesGradeB[k].innerHTML + " - " + endTimesGradeB[k].innerHTML;
-					bgCount = 2;
-				} 
-				
-				else if (x >= fiveMinsBefore && x < tableTimeEnd) {
-					periodsGradeB[k].style.background = "yellow";
-					periodsGradeB[k].style.color = "black";															
-					startTimesGradeB[k].style.background = "yellow";															
-					startTimesGradeB[k].style.color = "black";															
-					endTimesGradeB[k].style.background = "yellow";															
-					endTimesGradeB[k].style.color = "black";															
-					var minsLeft = tableTimeMinsEnd - curMins;
-					//document.getElementById('periodsP').innerHTML = minsLeft;
-					if (minsLeft > 1){
-						gradeBMarquee.innerHTML = "<b>" + periodsGradeB[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
-					} else if (minsLeft < 1) {
-							minsLeft += 60;
-								if (minsLeft > 1){
-												gradeBMarquee.innerHTML = "<b>" + periodsGradeB[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
-												} else {gradeBMarquee.innerHTML = "<b>" + periodsGradeB[k].innerHTML + "</b><br />" + minsLeft + " minute left";
-														}							
-						} else if (minsLeft == 1) {
-								gradeBMarquee.innerHTML = "<b>" + periodsGradeB[k].innerHTML + "</b><br />" + minsLeft + " minute left";
-								}
-					bgCount = 3;
-				} else if (k == periodsGradeB.length - 1 && x >= tableTimeEnd){
-					periodsGradeB[k].style.background = "white";
-					periodsGradeB[k].style.color = "black";
-					startTimesGradeB[k].style.background = "white";
-					startTimesGradeB[k].style.color = "black";
-					endTimesGradeB[k].style.background = "white";
-					endTimesGradeB[k].style.color = "black";
-					gradeBMarquee.innerHTML = "School's Out";
-				} else {
-					periodsGradeB[k].style.background = "white";
-					periodsGradeB[k].style.color = "black";
-					startTimesGradeB[k].style.background = "white";
-					startTimesGradeB[k].style.color = "black";
-					endTimesGradeB[k].style.background = "white";
-					endTimesGradeB[k].style.color = "black";
-				}
-					
-				switch (bgCount) {
-					//out of school and default
-					case 0: 
-							gradeBMarquee.style.background = "white";
-							gradeBMarquee.style.color = "black";
-							break;
-							
-					//changing classes
-					case 1: 
-							gradeBMarquee.style.background = "yellow";
-							gradeBMarquee.style.color = "black";
-							break;
-							
-					//normal ops
-					case 2: 
-							gradeBMarquee.style.background = bgc;
-							gradeBMarquee.style.color = "white";
-							break;
-					//5 mins left do not call
-					case 3:
-							gradeBMarquee.style.background = "yellow";
-							gradeBMarquee.style.color = "black";
-							break;
-							
-				}
-			}	
-		}
-		/////////////////////////////////B Grade Lunch///////////////////////
-		//document.getElementById('periodsP').innerHTML = periodsGradeBLunch.length;
-		for (k = 0; k < periodsGradeBLunch.length; k++) {
-			if (startTimesGradeBLunch[k] != null && endTimesGradeBLunch[k] != null) {
-			//convert 6th grade start times from table to JS DateTimes
-			tableTimeHoursStartLunch = startTimesGradeBLunch[k].innerHTML.split(':')[0];
-			tableTimeHoursStartLunch = parseInt(tableTimeHoursStartLunch);
-			if(tableTimeHoursStartLunch < 5) {tableTimeHoursStartLunch += 12;}
-			tableTimeMinsStartLunch = startTimesGradeBLunch[k].innerHTML.split(':')[1].split(' ')[0];
-			tableTimeStartLunch.setHours(tableTimeHoursStartLunch,tableTimeMinsStartLunch,0,0);
-			
-			//convert 6th grade end times from table to JS DateTimes
-			tableTimeHoursEndLunch = endTimesGradeBLunch[k].innerHTML.split(':')[0];
-			tableTimeHoursEndLunch = parseInt(tableTimeHoursEndLunch);
-			if(tableTimeHoursEndLunch < 5) {tableTimeHoursEndLunch += 12;}
-			tableTimeMinsEndLunch = endTimesGradeBLunch[k].innerHTML.split(':')[1].split(' ')[0];
-			tableTimeEndLunch.setHours(tableTimeHoursEndLunch,tableTimeMinsEndLunch,0,0);
-			
-				
-			fiveMinsBeforeLunch.setTime(tableTimeEndLunch.getTime() - (5 * 60 * 1000));
-			fiveMinsAfterLunch.setTime(tableTimeEndLunch.getTime() + (5 * 60 * 1000));
-			fiveAfterCur.setTime(x.getTime() + (5 * 60 * 1000));
-				
-				if (tableTimeStartLunch < fiveAfterCur && x < tableTimeStartLunch){
-					periodsGradeBLunch[k].style.background = "red";
-					periodsGradeBLunch[k].style.color = "white";
-					startTimesGradeBLunch[k].style.background = "red";
-					startTimesGradeBLunch[k].style.color = "white";
-					endTimesGradeBLunch[k].style.background = "red";
-					endTimesGradeBLunch[k].style.color = "white";
-				}
-				
-				else if (tableTimeStartLunch <= x && fiveMinsBeforeLunch > x) {
-				//changing 6th grade period to blue
-					periodsGradeBLunch[k].style.background = "red";
-					periodsGradeBLunch[k].style.color = "white";
-					startTimesGradeBLunch[k].style.background = "red";
-					startTimesGradeBLunch[k].style.color = "white";
-					endTimesGradeBLunch[k].style.background = "red";
-					endTimesGradeBLunch[k].style.color = "white";
-				} 
-				
-				else if (x >= fiveMinsBeforeLunch && x < tableTimeEndLunch) {
-					periodsGradeBLunch[k].style.background = "red";
-					periodsGradeBLunch[k].style.color = "white";
-					startTimesGradeBLunch[k].style.background = "red";
-					startTimesGradeBLunch[k].style.color = "white";
-					endTimesGradeBLunch[k].style.background = "red";
-					endTimesGradeBLunch[k].style.color = "white";																				
-				} else {
-					periodsGradeBLunch[k].style.background = "white";
-					periodsGradeBLunch[k].style.color = "black";
-					startTimesGradeBLunch[k].style.background = "white";
-					startTimesGradeBLunch[k].style.color = "black";
-					endTimesGradeBLunch[k].style.background = "white";
-					endTimesGradeBLunch[k].style.color = "black";
-				}		
-					
-			}			
-		}
-		
-		
-		/////////////////////////////////Grade C///////////////////////////
-		bgCount = 0;
-		for (k = 0; k < periodsGradeC.length; k++) {
-			if (startTimesGradeC[k] != null && endTimesGradeC[k] != null) {
-			//convert 6th grade start times from table to JS DateTimes
-			tableTimeHoursStart = startTimesGradeC[k].innerHTML.split(':')[0];
-			tableTimeHoursStart = parseInt(tableTimeHoursStart);
-			if(tableTimeHoursStart < 5) {tableTimeHoursStart += 12;}
-			tableTimeMinsStart = startTimesGradeC[k].innerHTML.split(':')[1].split(' ')[0];
-			tableTimeStart.setHours(tableTimeHoursStart,tableTimeMinsStart,0,0);
-			
-			//convert 6th grade end times from table to JS DateTimes
-			tableTimeHoursEnd = endTimesGradeC[k].innerHTML.split(':')[0];
-			tableTimeHoursEnd = parseInt(tableTimeHoursEnd);
-			if(tableTimeHoursEnd < 5) {tableTimeHoursEnd += 12;}
-			tableTimeMinsEnd = endTimesGradeC[k].innerHTML.split(':')[1].split(' ')[0];
-			tableTimeEnd.setHours(tableTimeHoursEnd,tableTimeMinsEnd,0,0);
-
-			fiveMinsBefore.setTime(tableTimeEnd.getTime() - (5 * 60 * 1000));
-			fiveMinsAfter.setTime(tableTimeEnd.getTime() + (5 * 60 * 1000));
-			fiveAfterCur.setTime(x.getTime() + (5 * 60 * 1000));				
-				
-				if (tableTimeStart < fiveAfterCur && x < tableTimeStart){
-					periodsGradeC[k].style.background = "yellow";
-					periodsGradeC[k].style.color = "black";
-					startTimesGradeC[k].style.background = "yellow";
-					startTimesGradeC[k].style.color = "black";
-					endTimesGradeC[k].style.background = "yellow";
-					endTimesGradeC[k].style.color = "black";
-					gradeCMarquee.innerHTML = "Changing Classes<br />Heading to <b>" + periodsGradeC[k].innerHTML + "</b>";
-					bgCount = 1;
-				}
-				
-				else if (tableTimeStart <= x && fiveMinsBefore > x) {
-				//changing 6th grade period to blue
-					periodsGradeC[k].style.background = bgc;
-					periodsGradeC[k].style.color = "white";
-					startTimesGradeC[k].style.background = bgc;
-					startTimesGradeC[k].style.color = "white";
-					endTimesGradeC[k].style.background = bgc;
-					endTimesGradeC[k].style.color = "white";
-					gradeCMarquee.innerHTML = "<b>" + periodsGradeC[k].innerHTML + "</b><br />" + startTimesGradeC[k].innerHTML + " - " + endTimesGradeC[k].innerHTML;
-					bgCount = 2;
-				} 
-				
-				else if (x >= fiveMinsBefore && x < tableTimeEnd) {
-					periodsGradeC[k].style.background = "yellow";
-					periodsGradeC[k].style.color = "black";															
-					startTimesGradeC[k].style.background = "yellow";															
-					startTimesGradeC[k].style.color = "black";															
-					endTimesGradeC[k].style.background = "yellow";															
-					endTimesGradeC[k].style.color = "black";															
-					var minsLeft = tableTimeMinsEnd - curMins;
-					if (minsLeft > 1){
-						gradeCMarquee.innerHTML = "<b>" + periodsGradeC[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
-					} else if (minsLeft < 1) {
-							minsLeft += 60;
-								if (minsLeft > 1){
-												gradeCMarquee.innerHTML = "<b>" + periodsGradeC[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
-												} else {gradeCMarquee.innerHTML = "<b>" + periodsGradeC[k].innerHTML + "</b><br />" + minsLeft + " minute left";
-														}							
-						} else if (minsLeft == 1) {
-								gradeCMarquee.innerHTML = "<b>" + periodsGradeC[k].innerHTML + "</b><br />" + minsLeft + " minute left";
-								}					
-					bgCount = 3;
-				} else if (k == periodsGradeC.length - 1 && x >= tableTimeEnd){
-					periodsGradeC[k].style.background = "white";
-					periodsGradeC[k].style.color = "black";
-					startTimesGradeC[k].style.background = "white";
-					startTimesGradeC[k].style.color = "black";
-					endTimesGradeC[k].style.background = "white";
-					endTimesGradeC[k].style.color = "black";
-					gradeCMarquee.innerHTML = "School's Out";
-				} else {
-					periodsGradeC[k].style.background = "white";
-					periodsGradeC[k].style.color = "black";
-					startTimesGradeC[k].style.background = "white";
-					startTimesGradeC[k].style.color = "black";
-					endTimesGradeC[k].style.background = "white";
-					endTimesGradeC[k].style.color = "black";
-				}
-
-				switch (bgCount) {
-					//out of school and default
-					case 0: 
-							gradeCMarquee.style.background = "white";
-							gradeCMarquee.style.color = "black";
-							break;
-							
-					//changing classes
-					case 1: 
-							gradeCMarquee.style.background = "yellow";
-							gradeCMarquee.style.color = "black";
-							break;
-							
-					//normal ops
-					case 2: 
-							gradeCMarquee.style.background = bgc;
-							gradeCMarquee.style.color = "white";
-							break;
-					//5 mins left do not call
-					case 3:
-							gradeCMarquee.style.background = "yellow";
-							gradeCMarquee.style.color = "black";
-							break;
-							
-				}
-					
-			}	
-		}
-				/////////////////////////////////C Grade Lunch///////////////////////
-		for (k = 0; k < periodsGradeCLunch.length; k++) {
-			if (startTimesGradeCLunch[k] != null && endTimesGradeCLunch[k] != null) {
-			//convert 6th grade start times from table to JS DateTimes
-			tableTimeHoursStartLunch = startTimesGradeCLunch[k].innerHTML.split(':')[0];
-			tableTimeHoursStartLunch = parseInt(tableTimeHoursStartLunch);
-			if(tableTimeHoursStartLunch < 5) {tableTimeHoursStartLunch += 12;}
-			tableTimeMinsStartLunch = startTimesGradeCLunch[k].innerHTML.split(':')[1].split(' ')[0];
-			tableTimeStartLunch.setHours(tableTimeHoursStartLunch,tableTimeMinsStartLunch,0,0);
-			
-			//convert 6th grade end times from table to JS DateTimes
-			tableTimeHoursEndLunch = endTimesGradeCLunch[k].innerHTML.split(':')[0];
-			tableTimeHoursEndLunch = parseInt(tableTimeHoursEndLunch);
-			if(tableTimeHoursEndLunch < 5) {tableTimeHoursEndLunch += 12;}
-			tableTimeMinsEndLunch = endTimesGradeCLunch[k].innerHTML.split(':')[1].split(' ')[0];
-			tableTimeEndLunch.setHours(tableTimeHoursEndLunch,tableTimeMinsEndLunch,0,0);
-			
-				
-			fiveMinsBeforeLunch.setTime(tableTimeEndLunch.getTime() - (5 * 60 * 1000));
-			fiveMinsAfterLunch.setTime(tableTimeEndLunch.getTime() + (5 * 60 * 1000));
-			fiveAfterCur.setTime(x.getTime() + (5 * 60 * 1000));
-				
-				if (tableTimeStartLunch < fiveAfterCur && x < tableTimeStartLunch){
-					periodsGradeCLunch[k].style.background = "red";
-					periodsGradeCLunch[k].style.color = "white";
-					startTimesGradeCLunch[k].style.background = "red";
-					startTimesGradeCLunch[k].style.color = "white";
-					endTimesGradeCLunch[k].style.background = "red";
-					endTimesGradeCLunch[k].style.color = "white";
-				}
-				
-				else if (tableTimeStartLunch <= x && fiveMinsBeforeLunch > x) {
-				//changing 6th grade period to blue
-					periodsGradeCLunch[k].style.background = "red";
-					periodsGradeCLunch[k].style.color = "white";
-					startTimesGradeCLunch[k].style.background = "red";
-					startTimesGradeCLunch[k].style.color = "white";
-					endTimesGradeCLunch[k].style.background = "red";
-					endTimesGradeCLunch[k].style.color = "white";
-				} 
-				
-				else if (x >= fiveMinsBeforeLunch && x < tableTimeEndLunch) {
-					periodsGradeCLunch[k].style.background = "red";
-					periodsGradeCLunch[k].style.color = "white";
-					startTimesGradeCLunch[k].style.background = "red";
-					startTimesGradeCLunch[k].style.color = "white";
-					endTimesGradeCLunch[k].style.background = "red";
-					endTimesGradeCLunch[k].style.color = "white";																				
-				} else {
-					periodsGradeCLunch[k].style.background = "white";
-					periodsGradeCLunch[k].style.color = "black";
-					startTimesGradeCLunch[k].style.background = "white";
-					startTimesGradeCLunch[k].style.color = "black";
-					endTimesGradeCLunch[k].style.background = "white";
-					endTimesGradeCLunch[k].style.color = "black";
-				}		
-					
-			}			
-		}
-		
-		
-		/////////////////////////////////Grade D///////////////////////////
-		bgCount = 0;
-		for (k = 0; k < periodsGradeD.length; k++) {
-			if (startTimesGradeB[k] != null && endTimesGradeB[k] != null){
-			//convert 12th grade start times from table to JS DateTimes
-			tableTimeHoursStart = startTimesGradeD[k].innerHTML.split(':')[0];
-			tableTimeHoursStart = parseInt(tableTimeHoursStart);
-			if(tableTimeHoursStart < 5) {tableTimeHoursStart += 12;}
-			tableTimeMinsStart = startTimesGradeD[k].innerHTML.split(':')[1].split(' ')[0];
-			tableTimeStart.setHours(tableTimeHoursStart,tableTimeMinsStart,0,0);
-			
-			//convert 12th grade end times from table to JS DateTimes
-			tableTimeHoursEnd = endTimesGradeD[k].innerHTML.split(':')[0];
-			tableTimeHoursEnd = parseInt(tableTimeHoursEnd);
-			if(tableTimeHoursEnd < 5) {tableTimeHoursEnd += 12;}
-			tableTimeMinsEnd = endTimesGradeD[k].innerHTML.split(':')[1].split(' ')[0];
-			tableTimeEnd.setHours(tableTimeHoursEnd,tableTimeMinsEnd,0,0);
-
-			fiveMinsBefore.setTime(tableTimeEnd.getTime() - (5 * 60 * 1000));
-			fiveMinsAfter.setTime(tableTimeEnd.getTime() + (5 * 60 * 1000));
-			fiveAfterCur.setTime(x.getTime() + (5 * 60 * 1000));				
-				
-				if (tableTimeStart < fiveAfterCur && x < tableTimeStart){
-					periodsGradeD[k].style.background = "yellow";
-					periodsGradeD[k].style.color = "black";
-					startTimesGradeD[k].style.background = "yellow";
-					startTimesGradeD[k].style.color = "black";
-					endTimesGradeD[k].style.background = "yellow";
-					endTimesGradeD[k].style.color = "black";
-					gradeDMarquee.innerHTML = "Changing Classes<br />Heading to <b>" + periodsGradeD[k].innerHTML + "</b>";
-					bgCount = 1;
-				}
-				
-				else if (tableTimeStart <= x && fiveMinsBefore > x) {
-				//changing 12th grade period to blue
-					periodsGradeD[k].style.background = bgc;
-					periodsGradeD[k].style.color = "white";
-					startTimesGradeD[k].style.background = bgc;
-					startTimesGradeD[k].style.color = "white";
-					endTimesGradeD[k].style.background = bgc;
-					endTimesGradeD[k].style.color = "white";
-					gradeDMarquee.innerHTML = "<b>" + periodsGradeC[k].innerHTML + "</b><br />" + startTimesGradeC[k].innerHTML + " - " + endTimesGradeC[k].innerHTML;
-					bgCount = 2;
-				} 
-				
-				else if (x >= fiveMinsBefore && x < tableTimeEnd) {
-					periodsGradeD[k].style.background = "yellow";
-					periodsGradeD[k].style.color = "black";															
-					startTimesGradeD[k].style.background = "yellow";															
-					startTimesGradeD[k].style.color = "black";															
-					endTimesGradeD[k].style.background = "yellow";															
-					endTimesGradeD[k].style.color = "black";															
-					var minsLeft = tableTimeMinsEnd - curMins;
-					if (minsLeft > 1){
-						gradeDMarquee.innerHTML = "<b>" + periodsGradeD[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
-					} else if (minsLeft < 1) {
-							minsLeft += 60;
-								if (minsLeft > 1){
-												gradeDMarquee.innerHTML = "<b>" + periodsGradeD[k].innerHTML + "</b><br />" + minsLeft + " minutes left";
-												} else {gradeDMarquee.innerHTML = "<b>" + periodsGradeD[k].innerHTML + "</b><br />" + minsLeft + " minute left";
-														}							
-						} else if (minsLeft == 1) {
-								gradeDMarquee.innerHTML = "<b>" + periodsGradeD[k].innerHTML + "</b><br />" + minsLeft + " minute left";
-								}					
-					bgCount = 3;
-				} else if (k == periodsGradeD.length - 1 && x >= tableTimeEnd){
-					periodsGradeD[k].style.background = "white";
-					periodsGradeD[k].style.color = "black";
-					startTimesGradeD[k].style.background = "white";
-					startTimesGradeD[k].style.color = "black";
-					endTimesGradeD[k].style.background = "white";
-					endTimesGradeD[k].style.color = "black";
-					gradeDMarquee.innerHTML = "School's Out";
-				} else {
-					periodsGradeD[k].style.background = "white";
-					periodsGradeD[k].style.color = "black";
-					startTimesGradeD[k].style.background = "white";
-					startTimesGradeD[k].style.color = "black";
-					endTimesGradeD[k].style.background = "white";
-					endTimesGradeD[k].style.color = "black";
-				}
-
-				switch (bgCount) {
-					//out of school and default
-					case 0: 
-							gradeDMarquee.style.background = "white";
-							gradeDMarquee.style.color = "black";
-							break;
-							
-					//changing classes
-					case 1: 
-							gradeDMarquee.style.background = "yellow";
-							gradeDMarquee.style.color = "black";
-							break;
-							
-					//normal ops
-					case 2: 
-							gradeDMarquee.style.background = bgc;
-							gradeDMarquee.style.color = "white";
-							break;
-					//5 mins left do not call
-					case 3:
-							gradeDMarquee.style.background = "yellow";
-							gradeDMarquee.style.color = "black";
-							break;
-							
-				}
-					
-				
-		}
-
-		}
-		
-				/////////////////////////////////D Grade Lunch///////////////////////
-		for (k = 0; k < periodsGradeDLunch.length; k++) {
-			if (startTimesGradeDLunch[k] != null && endTimesGradeDLunch[k] != null) {
-			//convert 6th grade start times from table to JS DateTimes
-			tableTimeHoursStartLunch = startTimesGradeDLunch[k].innerHTML.split(':')[0];
-			tableTimeHoursStartLunch = parseInt(tableTimeHoursStartLunch);
-			if(tableTimeHoursStartLunch < 5) {tableTimeHoursStartLunch += 12;}
-			tableTimeMinsStartLunch = startTimesGradeDLunch[k].innerHTML.split(':')[1].split(' ')[0];
-			tableTimeStartLunch.setHours(tableTimeHoursStartLunch,tableTimeMinsStartLunch,0,0);
-			
-			//convert 6th grade end times from table to JS DateTimes
-			tableTimeHoursEndLunch = endTimesGradeDLunch[k].innerHTML.split(':')[0];
-			tableTimeHoursEndLunch = parseInt(tableTimeHoursEndLunch);
-			if(tableTimeHoursEndLunch < 5) {tableTimeHoursEndLunch += 12;}
-			tableTimeMinsEndLunch = endTimesGradeDLunch[k].innerHTML.split(':')[1].split(' ')[0];
-			tableTimeEndLunch.setHours(tableTimeHoursEndLunch,tableTimeMinsEndLunch,0,0);
-			
-				
-			fiveMinsBeforeLunch.setTime(tableTimeEndLunch.getTime() - (5 * 60 * 1000));
-			fiveMinsAfterLunch.setTime(tableTimeEndLunch.getTime() + (5 * 60 * 1000));
-			fiveAfterCur.setTime(x.getTime() + (5 * 60 * 1000));
-				
-				if (tableTimeStartLunch < fiveAfterCur && x < tableTimeStartLunch){
-					periodsGradeDLunch[k].style.background = "red";
-					periodsGradeDLunch[k].style.color = "white";
-					startTimesGradeDLunch[k].style.background = "red";
-					startTimesGradeDLunch[k].style.color = "white";
-					endTimesGradeDLunch[k].style.background = "red";
-					endTimesGradeDLunch[k].style.color = "white";
-				}
-				
-				else if (tableTimeStartLunch <= x && fiveMinsBeforeLunch > x) {
-				//changing 6th grade period to blue
-					periodsGradeDLunch[k].style.background = "red";
-					periodsGradeDLunch[k].style.color = "white";
-					startTimesGradeDLunch[k].style.background = "red";
-					startTimesGradeDLunch[k].style.color = "white";
-					endTimesGradeDLunch[k].style.background = "red";
-					endTimesGradeDLunch[k].style.color = "white";
-				} 
-				
-				else if (x >= fiveMinsBeforeLunch && x < tableTimeEndLunch) {
-					periodsGradeDLunch[k].style.background = "red";
-					periodsGradeDLunch[k].style.color = "white";
-					startTimesGradeDLunch[k].style.background = "red";
-					startTimesGradeDLunch[k].style.color = "white";
-					endTimesGradeDLunch[k].style.background = "red";
-					endTimesGradeDLunch[k].style.color = "white";																				
-				} else {
-					periodsGradeDLunch[k].style.background = "white";
-					periodsGradeDLunch[k].style.color = "black";
-					startTimesGradeDLunch[k].style.background = "white";
-					startTimesGradeDLunch[k].style.color = "black";
-					endTimesGradeDLunch[k].style.background = "white";
-					endTimesGradeDLunch[k].style.color = "black";
-				}		
-					
-			}			
-		}
 						
 		}
-		//pFiller = periodsGradeA[0].innerHTML;
-		//document.getElementById('periodsP').innerHTML = fiveMinsBefore.toLocaleTimeString();
 
 
 display_c();
