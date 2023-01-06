@@ -3,7 +3,7 @@
 <script type="text/javascript"> 
 let bgc = "white";
 function display_c(){
-var refresh=100; // Refresh rate in milli seconds
+var refresh=1000; // Refresh rate in milli seconds
 mytime=setTimeout('display_ct()',refresh)
 
 
@@ -13,7 +13,7 @@ mytime=setTimeout('display_ct()',refresh)
 	
 
 //GET RID OF THIS ONCE TESTING IS DONE//
-var speedTime = 15;
+var speedTime = 04;
 var speedTimeSec = 00;	
 //GET RID OF THIS ONCE TESTING IS DONE//	
 	
@@ -21,7 +21,7 @@ var speedTimeSec = 00;
 function display_ct() {
 	//GET RID OF THIS ONCE TESTING IS DONE//
 	var x = new Date();
-	x.setHours(6, 0 + speedTime, speedTimeSec, 0);
+	x.setHours(14, 0 + speedTime, speedTimeSec, 0);
 	speedTime += 1;
 	speedTimeSec += 1;
 	//GET RID OF THIS ONCE TESTING IS DONE//
