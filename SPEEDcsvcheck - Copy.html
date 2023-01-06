@@ -122,11 +122,18 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 
 			
 		bgCount = 0;
+		if (document.getElementById('gradeAMarquee')){
 			displayPage(periodsGradeA, startTimesGradeA, endTimesGradeA, periodsGradeALunch, startTimesGradeALunch, endTimesGradeALunch, gradeAMarquee);
-	displayPage(periodsGradeB, startTimesGradeB, endTimesGradeB, periodsGradeBLunch, startTimesGradeBLunch, endTimesGradeBLunch, gradeBMarquee);
-	displayPage(periodsGradeC, startTimesGradeC, endTimesGradeC, periodsGradeCLunch, startTimesGradeCLunch, endTimesGradeCLunch, gradeCMarquee);
-	displayPage(periodsGradeD, startTimesGradeD, endTimesGradeD, periodsGradeDLunch, startTimesGradeDLunch, endTimesGradeDLunch, gradeDMarquee);
-		
+		}
+		if (document.getElementById('gradeBMarquee')){
+			displayPage(periodsGradeB, startTimesGradeB, endTimesGradeB, periodsGradeBLunch, startTimesGradeBLunch, endTimesGradeBLunch, gradeBMarquee);
+		}
+		if (document.getElementById('gradeCMarquee')){
+			displayPage(periodsGradeC, startTimesGradeC, endTimesGradeC, periodsGradeCLunch, startTimesGradeCLunch, endTimesGradeCLunch, gradeCMarquee);
+		}
+		if (document.getElementById('gradeDMarquee')){
+			displayPage(periodsGradeD, startTimesGradeD, endTimesGradeD, periodsGradeDLunch, startTimesGradeDLunch, endTimesGradeDLunch, gradeDMarquee);
+		}
 		
 	function displayPage(classPeriods, classStartTimes, classEndTimes, lunchPeriods, lunchStartTimes, lunchEndTimes, marquee){
 		for (k = 0; k < classPeriods.length; k++) {
