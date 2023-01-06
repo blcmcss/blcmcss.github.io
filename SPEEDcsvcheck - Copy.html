@@ -13,7 +13,7 @@ mytime=setTimeout('display_ct()',refresh)
 	
 
 //GET RID OF THIS ONCE TESTING IS DONE//
-var speedTime = 04;
+var speedTime = 00;
 var speedTimeSec = 00;	
 //GET RID OF THIS ONCE TESTING IS DONE//	
 	
@@ -146,10 +146,10 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 			tableTimeStart.setHours(tableTimeHoursStart,tableTimeMinsStart,0,0);
 			
 			//convert 6th grade end times from table to JS DateTimes
-			tableTimeHoursEnd = endTimesGradeA[k].innerHTML.split(':')[0];
+			tableTimeHoursEnd = classEndTimes[k].innerHTML.split(':')[0];
 			tableTimeHoursEnd = parseInt(tableTimeHoursEnd);
 			if(tableTimeHoursEnd < 5) {tableTimeHoursEnd += 12;}
-			tableTimeMinsEnd = endTimesGradeA[k].innerHTML.split(':')[1].split(' ')[0];
+			tableTimeMinsEnd = classEndTimes[k].innerHTML.split(':')[1].split(' ')[0];
 			tableTimeEnd.setHours(tableTimeHoursEnd,tableTimeMinsEnd,0,0);
 			
 				
