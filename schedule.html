@@ -112,7 +112,7 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 
 
 			
-		bgCount = 0;
+		
 		if (document.getElementById('gradeAMarquee')){
 			displayPage(periodsGradeA, startTimesGradeA, endTimesGradeA, periodsGradeALunch, startTimesGradeALunch, endTimesGradeALunch, gradeAMarquee);
 		}
@@ -127,6 +127,7 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 		}
 		
 	function displayPage(classPeriods, classStartTimes, classEndTimes, lunchPeriods, lunchStartTimes, lunchEndTimes, marquee){
+		bgCount = 0;
 		for (k = 0; k < classPeriods.length; k++) {
 			if (classStartTimes[k] != null && classEndTimes[k] != null) {
 			//convert 6th grade start times from table to JS DateTimes
