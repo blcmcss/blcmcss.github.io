@@ -85,6 +85,7 @@ var fiveMinsAfterLunch = new Date();
 
 var tableTime = new Date();
 document.getElementById('ct').innerHTML = x.toLocaleTimeString(/*'en-US-u-hc-h12', { hour: 'numeric', minute: '2-digit' }*/);
+document.getElementById('date').innerHTML = x.toLocaleDateString('en-US', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'});
 curMins = ct.innerHTML.split(':')[1].split(':')[0];	
 
 
@@ -315,6 +316,7 @@ display_c();
 	<div id='ctContainer'>
 		<h1 id='bodyLabelContainer'></h1>
 		<h1 id='ct' ></h1>
+		<p id='date'></p>
 	</div>
 
 
@@ -860,7 +862,14 @@ preSelect(selectSched, nameSched);
   align-items: center;
   height: 75px;
   margin: 0px;
- }	
+ }
+#date {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: -20px 0px 0px 0px;
+  font-weight: bold;
+ }
 #bodyLabelContainer {
 	display: flex;
   	justify-content: center;
