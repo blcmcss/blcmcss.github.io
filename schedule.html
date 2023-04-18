@@ -29,6 +29,9 @@ function display_ct() {
 	var periodsGradeD = document.getElementsByClassName('col10 period');
 	var startTimesGradeD = document.getElementsByClassName('col11 time');
 	var endTimesGradeD = document.getElementsByClassName('col12 time');
+	var periodsGradeE = document.getElementsByClassName('col13 period');
+	var startTimesGradeE = document.getElementsByClassName('col14 time');
+	var endTimesGradeE = document.getElementsByClassName('col15 time');
 	
 	//Lunch Vars
 	var periodsGradeALunch = document.getElementsByClassName('lunch col1');
@@ -43,6 +46,9 @@ function display_ct() {
 	var periodsGradeDLunch = document.getElementsByClassName('lunch col10');
 	var startTimesGradeDLunch = document.getElementsByClassName('lunch col11');
 	var endTimesGradeDLunch = document.getElementsByClassName('lunch col12');
+	var periodsGradeELunch = document.getElementsByClassName('lunch col13');
+	var startTimesGradeELunch = document.getElementsByClassName('lunch col14');
+	var endTimesGradeELunch = document.getElementsByClassName('lunch col15');
 	
 	
 	var tableTimeHoursStart;
@@ -107,6 +113,9 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 		if (document.getElementById('gradeDHeader')){
 			gradeDHeader.innerHTML = document.getElementsByClassName('header col11')[0].innerHTML;
 		}
+		if (document.getElementById('gradeEHeader')){
+			gradeEHeader.innerHTML = document.getElementsByClassName('header col14')[0].innerHTML;
+		}
 
 	
 		
@@ -125,6 +134,9 @@ curMins = ct.innerHTML.split(':')[1].split(':')[0];
 		}
 		if (document.getElementById('gradeDMarquee')){
 			displayPage(periodsGradeD, startTimesGradeD, endTimesGradeD, periodsGradeDLunch, startTimesGradeDLunch, endTimesGradeDLunch, gradeDMarquee);
+		}
+		if (document.getElementById('gradeEMarquee')){
+			displayPage(periodsGradeE, startTimesGradeE, endTimesGradeE, periodsGradeELunch, startTimesGradeELunch, endTimesGradeELunch, gradeEMarquee);
 		}
 		
 	function displayPage(classPeriods, classStartTimes, classEndTimes, lunchPeriods, lunchStartTimes, lunchEndTimes, marquee){
@@ -614,6 +626,18 @@ display_c();
 									break;
 								case 11: cell.classList.add("row11");
 									break;
+								case 12: cell.classList.add("row12");
+									break;
+								case 13: cell.classList.add("row13");
+									break;
+								case 14: cell.classList.add("row14");
+									break;
+								case 15: cell.classList.add("row15");
+									break;
+								case 16: cell.classList.add("row16");
+									break;
+								case 17: cell.classList.add("row17");
+									break;
 							}
 							switch(j){
 								case 0:
@@ -680,6 +704,21 @@ display_c();
 										cell.classList.add("time");
 									}
 									break;
+								case 12:
+										cell.classList.add("col12");
+									break;
+								case 13:
+										cell.classList.add("col13");
+									if ( i != 0){
+										cell.classList.add("time");
+									}
+									break;
+								case 14:
+										cell.classList.add("col14");
+									if ( i != 0){
+										cell.classList.add("time");
+									}
+									break;
 									
 							}
 							
@@ -713,7 +752,13 @@ display_c();
 						var marqueeDiv = document.getElementById("marquee");
 						var headerRow = document.getElementsByClassName("header");
 						//document.getElementById('periodsP').innerHTML = headerRow.length;
-					if (headerRow.length > 9){
+		 			if (headerRow.length > 12){
+								marqueeDiv.innerHTML = "<table id='marqueeTable'><tr><td id='gradeAHeader' class='marqueeTD5'></td><td id='gradeBHeader' class='marqueeTD5'></td><td id='gradeCHeader' class='marqueeTD5'></td><td id='gradeDHeader' class='marqueeTD5'></td><td id='gradeEHeader' class='marqueeTD5'</td></tr><tr><td id='gradeAMarquee' class='marqueeTD5'></td><td id='gradeBMarquee' class='marqueeTD5'></td><td id='gradeCMarquee' class='marqueeTD5'></td><td id='gradeDMarquee' class='marqueeTD5'></td><td id='gradeEMarquee' class='marqueeTD5'></td></tr></table>";
+								document.getElementById('displayContainer').style.width = "95%";
+								for (var z = 0; z < lunchTdCount; z++) {
+									lunchTDs[z].setAttribute('width', '6.66%');
+								}								
+					} else if (headerRow.length > 9){
 								marqueeDiv.innerHTML = "<table id='marqueeTable'><tr><td id='gradeAHeader' class='marqueeTD4'></td><td id='gradeBHeader' class='marqueeTD4'></td><td id='gradeCHeader' class='marqueeTD4'></td><td id='gradeDHeader' class='marqueeTD4'></td></tr><tr><td id='gradeAMarquee' class='marqueeTD4'></td><td id='gradeBMarquee' class='marqueeTD4'></td><td id='gradeCMarquee' class='marqueeTD4'></td><td id='gradeDMarquee' class='marqueeTD4'></td></tr></table>";
 								document.getElementById('displayContainer').style.width = "95%";
 								for (var z = 0; z < lunchTdCount; z++) {
@@ -957,7 +1002,10 @@ preSelect(selectSched, nameSched);
 .marqueeTD4 {
 	width: 25%;
 }
-#gradeAHeader, #gradeBHeader, #gradeCHeader, #gradeDHeader{
+.marqueeTD5 {
+	width: 20%;
+	}
+#gradeAHeader, #gradeBHeader, #gradeCHeader, #gradeDHeader, #gradeEHeader{
 	font-weight: bold;
 }
 #tableLunches td {
