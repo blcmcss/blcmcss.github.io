@@ -13,7 +13,7 @@ document.getElementById('date').innerHTML = x.toLocaleDateString('en-US', {weekd
 
 }
 </script>
-	//display_ct();
+
 
 	
 
@@ -24,7 +24,6 @@ document.getElementById('date').innerHTML = x.toLocaleDateString('en-US', {weekd
 
 <body onload=display_ct();>
 	<div id='ctContainer'>
-		<h1 id='bodyLabelContainer'></h1>
 		<h1 id='ct' ></h1>
 		<p id='date'></p>
 		<h1>REQUEST TERMINATED!</h1>
@@ -35,13 +34,6 @@ document.getElementById('date').innerHTML = x.toLocaleDateString('en-US', {weekd
 	</body>
 	
 <style>
-#ctContainer {
-  background-position: left center;
-  background-repeat: no-repeat;
-	min-height: 75px;
-  max-height: 150px;
-  background-size: 150px;
-}
 #ct {
   display: flex;
   justify-content: center;
@@ -56,148 +48,4 @@ document.getElementById('date').innerHTML = x.toLocaleDateString('en-US', {weekd
   margin: -20px 0px 0px 0px;
   font-weight: bold;
  }
-#bodyLabelContainer {
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
-	margin: 0px;
-	height: 75px;
-	}
-#displayContainer {
-	margin-left: auto;
-	margin-right: auto;
-	}
-.linksContent {
-	display: inline;
-	margin: 3%;
-}
-#links {
-	text-align: center;
-	margin-bottom: 1.5%;
-}
-#dvCSVLabel {
-	text-align: center;
-	margin-bottom: 0;
-	margin-top: 10px;
-}
-#dvCSV {
-	margin-bottom: 2%;
-}
-#dvLunches {
-	text-align: center;
-	margin-bottom: 2%;
-}
-#lunchesLabel {
-	font-size: 2em;
-	margin-bottom: 0;
-	margin-top: 10px;
-}
-.lunch.col1 {
-	
-}
-#marquee {
-	text-align: center;
-	}
-#marqueeTable {
-	margin-top: 1%;
-	height: 10%;
-	text-align: center;
-	border: 4px solid black;
-	border-collapse: collapse;
-	font-size: 1.75em;
-}
-#marqueeTable td {
-	border: 4px solid black;
-	font-size: 1.15em;
-}
-#marqueeTable-single {
-	margin-top: 1%;
-	height: 10%;
-	text-align: center;
-	border: 4px solid black;
-	border-collapse: collapse;
-	font-size: 1.75em;
-	}
-#marqueeTable-single td {
-	border: 4px solid black;
-	font-size: 1.15em;
-}
-.marqueeTD {
-	width: 33%;
-}
-.marqueeTD4 {
-	width: 25%;
-}
-.marqueeTD5 {
-	width: 20%;
-	}
-#gradeAHeader, #gradeBHeader, #gradeCHeader, #gradeDHeader, #gradeEHeader{
-	font-weight: bold;
-}
-#tableLunches td {
-	border: 2px solid black;
-	border-collapse: collapse;
-	padding: 3px;
-}
-#tableLunches tr {
-	border: 2px solid black;
-	border-collapse: collapse;
-	margin-bottom: 0;
-}
-#table td {
-	border: 2px solid black;
-	border-collapse: collapse;
-	font-size: 1.15em;
-}
-#table tr {
-	border: 2px solid black;
-	border-collapse: collapse;
-}
-#table {
-	padding-bottom: 10%;
-}
-table {
-	width: 95%;
-	margin-left: auto;
-	margin-right: auto;
-	border: 4px solid black;
-	border-collapse: collapse;
-}
-h1 {
-	text-align: center;
-}
-#buttons {
-	position: absolute;
-	width: 100%;
-	margin: 1% 0 2% 0;
-	text-align: center;
-}
-#fileUpload, #upload, #schools, #schoolsLabel, #selectWarning {
-	margin-bottom: 1%;
-	margin-top: 0;
-}
-#selectWarning {
-	text-align: center;
-	}
-#schedules, #schedulesLabel {
-	margin-bottom: 0;
-	margin-top: 0;
-}
-body {
-	position: relative;
-}
-.period {
-	text-align: center;
-	font-weight: bold;
-}
-.header {
-	border-left: 0 !important;
-	border-right: 0 !important;
-	border-bottom: 4px solid black !important;
-	text-align: center;
-	font-weight: bold;
-}
-.col3, .col6, .col9, .col12 {
-	border-right: 4px solid black !important;
-}
 </style>
